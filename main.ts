@@ -1,5 +1,8 @@
-function start_screen () {
-    on_start_screen2 = true
+let on_start_screen = true
+let text_sprite : TextSprite = null
+function start_screen() {
+    
+    on_start_screen = true
     scene.setBackgroundImage(img`
         111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
         111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
@@ -121,8 +124,17 @@ function start_screen () {
         111111111111111bebbbed111dbbbbd1dbbcd1b111bbbbd1dcbcd1b111bbbbd1dcbcd11dcbcb1cb1cb1cb1d1cb1ccbb111cb111cb1cc1ccbb1cc1cc1cc1cc111cc1cc1c1dcbb1cc1111111111111111
         1111111111111111dbbbd111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
         `)
-    music.play(music.createSong(assets.song`startscreen`), music.PlaybackMode.UntilDone)
+    bottom_text_sprite()
+    music.play(music.createSong(assets.song`
+            startscreen
+            `), music.PlaybackMode.UntilDone)
 }
-let on_start_screen2 = false
-let on_start_screen = true
+
+function bottom_text_sprite() {
+    
+    text_sprite = textsprite.create("Pulsa A para jugar")
+    text_sprite.setOutline(1, 15)
+    text_sprite.setPosition(80, 110)
+}
+
 start_screen()

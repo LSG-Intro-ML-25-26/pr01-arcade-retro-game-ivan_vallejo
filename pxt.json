@@ -2,7 +2,9 @@
     "name": "Pueblo-Paleta",
     "description": "",
     "dependencies": {
-        "device": "*"
+        "device": "*",
+        "arcade-story": "github:microsoft/arcade-storytelling#v1.0.3",
+        "arcade-text": "github:microsoft/arcade-text#v1.3.0"
     },
     "files": [
         "main.blocks",
@@ -25,5 +27,5 @@
     "supportedTargets": [
         "arcade"
     ],
-    "preferredEditor": "blocksprj"
+    "preferredEditor": "pyprj"
 }
