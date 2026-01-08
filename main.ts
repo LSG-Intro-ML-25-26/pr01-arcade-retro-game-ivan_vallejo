@@ -138,13 +138,15 @@ function close_start_screen() {
 }
 
 function close_oak_intro() {
+    story.clearAllText()
     sprites.destroy(text_sprite_oak)
 }
 
-function oak_intro() {
-    
-    on_start_screen = false
-    scene.setBackgroundImage(img`111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
+function oak_cutscene() {
+    story.startCutscene(function oak_intro() {
+        
+        on_start_screen = false
+        scene.setBackgroundImage(img`111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
     111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
     111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
     111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
@@ -264,22 +266,22 @@ function oak_intro() {
     666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666
     666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666
     666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666`)
-    music.play(music.createSong(assets.song`oakLabTheme`), music.PlaybackMode.LoopingInBackground)
-    story.printDialog("Antes de empezar, como te llamas?", 80, 110, 30, 150)
-    player_name = game.askForString("Cuál es tu nombre?", 12)
-    story.printDialog("Ah, " + player_name + ", ¡qué nombre tan genial!", 80, 110, 30, 150)
-    on_oak_intro = true
-    top_text_sprite()
-    story.printDialog("Hola " + player_name + "! Bienvenido al mundo Pokémon.", 80, 110, 30, 150)
-    story.printDialog("Mi nombre es Oak, pero la gente me llama profesor Pokémon.", 80, 110, 50, 150)
-    story.printDialog("Este mundo está habitado por", 80, 110, 30, 150)
-    story.printDialog("unas criaturas llamadas Pokémon,", 80, 110, 30, 150)
-    story.printDialog("algunos los usan de mascota,", 80, 110, 30, 150)
-    story.printDialog("otros los usan para luchar,", 80, 110, 30, 150)
-    story.printDialog("mientras que yo los estudio como profesión.", 80, 110, 50, 150)
-    story.printDialog("Por si todavía no lo sabes,", 80, 110, 30, 150)
-    story.printDialog("un Pokémon es esto de aquí, se llama nidoran.", 80, 110, 50, 150)
-    scene.setBackgroundImage(img`111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
+        music.play(music.createSong(assets.song`oakLabTheme`), music.PlaybackMode.LoopingInBackground)
+        story.printDialog("Antes de empezar, como te llamas?", 80, 110, 30, 150)
+        player_name = game.askForString("Cuál es tu nombre?", 12)
+        story.printDialog("Ah, " + player_name + ", ¡qué nombre tan genial!", 80, 110, 30, 150)
+        on_oak_intro = true
+        top_text_sprite()
+        story.printDialog("Hola " + player_name + "! Bienvenido al mundo Pokémon.", 80, 110, 30, 150)
+        story.printDialog("Mi nombre es Oak, pero la gente me llama profesor Pokémon.", 80, 110, 50, 150)
+        story.printDialog("Este mundo está habitado por", 80, 110, 30, 150)
+        story.printDialog("unas criaturas llamadas Pokémon,", 80, 110, 30, 150)
+        story.printDialog("algunos los usan de mascota,", 80, 110, 30, 150)
+        story.printDialog("otros los usan para luchar,", 80, 110, 30, 150)
+        story.printDialog("mientras que yo los estudio como profesión.", 80, 110, 50, 150)
+        story.printDialog("Por si todavía no lo sabes,", 80, 110, 30, 150)
+        story.printDialog("un Pokémon es esto de aquí, se llama nidoran.", 80, 110, 50, 150)
+        scene.setBackgroundImage(img`111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
     111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
     111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
     111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
@@ -399,11 +401,20 @@ function oak_intro() {
     666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666
     666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666
     666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666`)
-    story.printDialog("Este que ves es solo uno de más de 150 existentes.", 80, 110, 50, 150)
-    story.printDialog("Y tu deberás recabar información sobre", 80, 110, 30, 150)
-    story.printDialog("todos y cada uno de ellos.", 80, 110, 30, 150)
-    story.printDialog("Bien, " + player_name + ".", 80, 110, 30, 150)
-    story.printDialog("¡Tu aventura Pokémon está a punto de comenzar!", 80, 110, 50, 150)
+        story.printDialog("Este que ves es solo uno de más de 150 existentes.", 80, 110, 50, 150)
+        story.printDialog("Y tu deberás recabar información sobre", 80, 110, 30, 150)
+        story.printDialog("todos y cada uno de ellos.", 80, 110, 30, 150)
+        story.printDialog("Bien, " + player_name + ".", 80, 110, 30, 150)
+        story.printDialog("¡Tu aventura Pokémon está a punto de comenzar!", 80, 110, 50, 150)
+        close_oak_intro()
+        start_game()
+    })
+}
+
+function start_game() {
+    
+    on_oak_intro = false
+    story.printDialog("GAME", 80, 90, 50, 150)
 }
 
 function bottom_text_sprite() {
@@ -426,16 +437,20 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function on_a_pressed() {
         on_start_screen = false
         close_start_screen()
         music.stopAllSounds()
-        oak_intro()
+        oak_cutscene()
     }
     
 })
 controller.B.onEvent(ControllerButtonEvent.Pressed, function on_b_pressed() {
     
     if (on_oak_intro == true) {
-        on_oak_intro = false
+        story.cancelCurrentCutscene()
+        story.clearAllText()
         close_oak_intro()
         music.stopAllSounds()
+        on_oak_intro = false
+        pause(200)
+        start_game()
     }
     
 })

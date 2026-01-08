@@ -138,6 +138,7 @@ def close_start_screen():
     sprites.destroy(text_sprite)
 
 def close_oak_intro():
+    story.clear_all_text()
     sprites.destroy(text_sprite_oak)
 
 def oak_intro():
@@ -404,7 +405,18 @@ def oak_intro():
     story.print_dialog("todos y cada uno de ellos.", 80, 110, 30, 150)
     story.print_dialog("Bien, " + player_name + ".", 80, 110, 30, 150)
     story.print_dialog("¡Tu aventura Pokémon está a punto de comenzar!", 80, 110, 50, 150)
-    
+
+    close_oak_intro()
+    start_game()
+
+def oak_cutscene():
+    story.start_cutscene(oak_intro)
+
+def start_game():
+    global on_oak_intro
+    on_oak_intro = False
+    story.print_dialog("GAME", 80, 90, 50, 150)
+
 def bottom_text_sprite():
     global text_sprite
     text_sprite = textsprite.create("Pulsa A para jugar")
@@ -423,15 +435,19 @@ def on_a_pressed():
         on_start_screen = False
         close_start_screen()
         music.stop_all_sounds()
-        oak_intro()
+        oak_cutscene()
 controller.A.on_event(ControllerButtonEvent.PRESSED, on_a_pressed)
 
 def on_b_pressed():
     global on_oak_intro
     if on_oak_intro == True:
-        on_oak_intro = False
+        story.cancel_current_cutscene()
+        story.clear_all_text()
         close_oak_intro()
         music.stop_all_sounds()
+        on_oak_intro = False
+        pause(200)
+        start_game()
 controller.B.on_event(ControllerButtonEvent.PRESSED, on_b_pressed)
 
 start_screen()
