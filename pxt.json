@@ -4,7 +4,8 @@
     "dependencies": {
         "device": "*",
         "arcade-story": "github:microsoft/arcade-storytelling#v1.0.3",
-        "arcade-text": "github:microsoft/arcade-text#v1.3.0"
+        "arcade-text": "github:microsoft/arcade-text#v1.3.0",
+        "color": "*"
     },
     "files": [
         "main.blocks",
