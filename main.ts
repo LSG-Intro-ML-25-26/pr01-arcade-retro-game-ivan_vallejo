@@ -1,6 +1,7 @@
 let on_start_screen = true
 let on_oak_intro = false
 let text_sprite : TextSprite = null
+let text_sprite_oak : TextSprite = null
 let player_name = ""
 function start_screen() {
     
@@ -136,10 +137,13 @@ function close_start_screen() {
     sprites.destroy(text_sprite)
 }
 
+function close_oak_intro() {
+    sprites.destroy(text_sprite_oak)
+}
+
 function oak_intro() {
     
     on_start_screen = false
-    on_oak_intro = true
     scene.setBackgroundImage(img`111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
     111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
     111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
@@ -261,7 +265,12 @@ function oak_intro() {
     666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666
     666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666`)
     music.play(music.createSong(assets.song`oakLabTheme`), music.PlaybackMode.LoopingInBackground)
-    story.printDialog("Hola! Bienvenido al mundo Pokémon.", 80, 110, 30, 150)
+    story.printDialog("Antes de empezar, como te llamas?", 80, 110, 30, 150)
+    player_name = game.askForString("Cuál es tu nombre?", 12)
+    story.printDialog("Ah, " + player_name + ", ¡qué nombre tan genial!", 80, 110, 30, 150)
+    on_oak_intro = true
+    top_text_sprite()
+    story.printDialog("Hola " + player_name + "! Bienvenido al mundo Pokémon.", 80, 110, 30, 150)
     story.printDialog("Mi nombre es Oak, pero la gente me llama profesor Pokémon.", 80, 110, 50, 150)
     story.printDialog("Este mundo está habitado por", 80, 110, 30, 150)
     story.printDialog("unas criaturas llamadas Pokémon,", 80, 110, 30, 150)
@@ -393,9 +402,6 @@ function oak_intro() {
     story.printDialog("Este que ves es solo uno de más de 150 existentes.", 80, 110, 50, 150)
     story.printDialog("Y tu deberás recabar información sobre", 80, 110, 30, 150)
     story.printDialog("todos y cada uno de ellos.", 80, 110, 30, 150)
-    story.printDialog("Antes de empezar, como te llamas?", 80, 110, 30, 150)
-    player_name = game.askForString("Cuál es tu nombre?", 12)
-    story.printDialog("Ah, " + player_name + ", ¡qué nombre tan genial!", 80, 110, 30, 150)
     story.printDialog("Bien, " + player_name + ".", 80, 110, 30, 150)
     story.printDialog("¡Tu aventura Pokémon está a punto de comenzar!", 80, 110, 50, 150)
 }
@@ -407,6 +413,13 @@ function bottom_text_sprite() {
     text_sprite.setPosition(80, 110)
 }
 
+function top_text_sprite() {
+    
+    text_sprite_oak = textsprite.create("Pulsa B para omitir")
+    text_sprite_oak.setOutline(1, 15)
+    text_sprite_oak.setPosition(60, 5)
+}
+
 controller.A.onEvent(ControllerButtonEvent.Pressed, function on_a_pressed() {
     
     if (on_start_screen == true) {
@@ -414,6 +427,15 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function on_a_pressed() {
         close_start_screen()
         music.stopAllSounds()
         oak_intro()
+    }
+    
+})
+controller.B.onEvent(ControllerButtonEvent.Pressed, function on_b_pressed() {
+    
+    if (on_oak_intro == true) {
+        on_oak_intro = false
+        close_oak_intro()
+        music.stopAllSounds()
     }
     
 })
