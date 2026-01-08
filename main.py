@@ -1,6 +1,7 @@
 on_start_screen = True
 on_oak_intro = False
 text_sprite: TextSprite = None
+player_name = ""
 
 def start_screen():
     global on_start_screen
@@ -136,7 +137,7 @@ def close_start_screen():
     sprites.destroy(text_sprite)
 
 def oak_intro():
-    global on_start_screen, on_oak_intro
+    global on_start_screen, on_oak_intro, player_name
     on_start_screen = False
     on_oak_intro = True
     scene.set_background_image(img("""111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
@@ -393,8 +394,12 @@ def oak_intro():
     story.print_dialog("Este que ves es solo uno de más de 150 existentes.", 80, 110, 50, 150)
     story.print_dialog("Y tu deberás recabar información sobre", 80, 110, 30, 150)
     story.print_dialog("todos y cada uno de ellos.", 80, 110, 30, 150)
-    story.print_dialog("Antes de empezar, eres chico o chica?", 80, 110, 30, 150)
-
+    story.print_dialog("Antes de empezar, como te llamas?", 80, 110, 30, 150)
+    player_name = game.ask_for_string("Cuál es tu nombre?", 12)
+    story.print_dialog("Ah, " + player_name + ", ¡qué nombre tan genial!", 80, 110, 30, 150)
+    story.print_dialog("Bien, " + player_name + ".", 80, 110, 30, 150)
+    story.print_dialog("¡Tu aventura Pokémon está a punto de comenzar!", 80, 110, 50, 150)
+    
 def bottom_text_sprite():
     global text_sprite
     text_sprite = textsprite.create("Pulsa A para jugar")

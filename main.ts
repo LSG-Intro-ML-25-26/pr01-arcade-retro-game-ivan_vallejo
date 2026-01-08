@@ -1,6 +1,7 @@
 let on_start_screen = true
 let on_oak_intro = false
 let text_sprite : TextSprite = null
+let player_name = ""
 function start_screen() {
     
     on_start_screen = true
@@ -392,7 +393,11 @@ function oak_intro() {
     story.printDialog("Este que ves es solo uno de más de 150 existentes.", 80, 110, 50, 150)
     story.printDialog("Y tu deberás recabar información sobre", 80, 110, 30, 150)
     story.printDialog("todos y cada uno de ellos.", 80, 110, 30, 150)
-    story.printDialog("Antes de empezar, eres chico o chica?", 80, 110, 30, 150)
+    story.printDialog("Antes de empezar, como te llamas?", 80, 110, 30, 150)
+    player_name = game.askForString("Cuál es tu nombre?", 12)
+    story.printDialog("Ah, " + player_name + ", ¡qué nombre tan genial!", 80, 110, 30, 150)
+    story.printDialog("Bien, " + player_name + ".", 80, 110, 30, 150)
+    story.printDialog("¡Tu aventura Pokémon está a punto de comenzar!", 80, 110, 50, 150)
 }
 
 function bottom_text_sprite() {
