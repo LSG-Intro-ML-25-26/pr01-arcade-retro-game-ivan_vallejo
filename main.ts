@@ -2,6 +2,8 @@ let on_start_screen = true
 let on_oak_intro = false
 let text_sprite : TextSprite = null
 let text_sprite_oak : TextSprite = null
+let on_game = false
+let red : Sprite = null
 let player_name = ""
 function start_screen() {
     
@@ -413,8 +415,18 @@ function oak_cutscene() {
 
 function start_game() {
     
+    if (on_game) {
+        return
+    }
+    
     on_oak_intro = false
-    story.printDialog("GAME", 80, 90, 50, 150)
+    on_game = true
+    scene.setBackgroundColor(15)
+    tiles.setCurrentTilemap(tilemap`Red_House_F0`)
+    red = sprites.create(assets.image`red_static`, SpriteKind.Player)
+    tiles.placeOnTile(red, tiles.getTileLocation(3, 3))
+    controller.moveSprite(red)
+    scene.cameraFollowSprite(red)
 }
 
 function bottom_text_sprite() {
@@ -451,6 +463,62 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function on_b_pressed() {
         on_oak_intro = false
         pause(200)
         start_game()
+    }
+    
+})
+controller.left.onEvent(ControllerButtonEvent.Pressed, function on_left_pressed() {
+    
+    if (on_game == true) {
+        animation.runImageAnimation(red, assets.animation`red_left`, 200, true)
+    }
+    
+})
+controller.left.onEvent(ControllerButtonEvent.Released, function on_left_released() {
+    if (on_game) {
+        animation.stopAnimation(animation.AnimationTypes.All, red)
+        red.setImage(assets.image`red_static_left`)
+    }
+    
+})
+controller.right.onEvent(ControllerButtonEvent.Pressed, function on_right_pressed() {
+    
+    if (on_game == true) {
+        animation.runImageAnimation(red, assets.animation`red_right`, 200, true)
+    }
+    
+})
+controller.right.onEvent(ControllerButtonEvent.Released, function on_right_released() {
+    if (on_game) {
+        animation.stopAnimation(animation.AnimationTypes.All, red)
+        red.setImage(assets.image`red_static_right`)
+    }
+    
+})
+controller.up.onEvent(ControllerButtonEvent.Pressed, function on_up_pressed() {
+    
+    if (on_game == true) {
+        animation.runImageAnimation(red, assets.animation`red_up`, 200, true)
+    }
+    
+})
+controller.up.onEvent(ControllerButtonEvent.Released, function on_up_released() {
+    if (on_game) {
+        animation.stopAnimation(animation.AnimationTypes.All, red)
+        red.setImage(assets.image`red_static_up`)
+    }
+    
+})
+controller.down.onEvent(ControllerButtonEvent.Pressed, function on_down_pressed() {
+    
+    if (on_game == true) {
+        animation.runImageAnimation(red, assets.animation`red_down`, 200, true)
+    }
+    
+})
+controller.down.onEvent(ControllerButtonEvent.Released, function on_down_released() {
+    if (on_game) {
+        animation.stopAnimation(animation.AnimationTypes.All, red)
+        red.setImage(assets.image`red_static_down`)
     }
     
 })

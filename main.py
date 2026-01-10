@@ -2,6 +2,8 @@ on_start_screen = True
 on_oak_intro = False
 text_sprite: TextSprite = None
 text_sprite_oak: TextSprite = None
+on_game = False
+red: Sprite = None
 player_name = ""
 
 def start_screen():
@@ -413,9 +415,17 @@ def oak_cutscene():
     story.start_cutscene(oak_intro)
 
 def start_game():
-    global on_oak_intro
+    global on_oak_intro, on_game, red
+    if on_game:
+        return
     on_oak_intro = False
-    story.print_dialog("GAME", 80, 90, 50, 150)
+    on_game = True
+    scene.set_background_color(15)
+    tiles.set_current_tilemap(tilemap("""Red_House_F0"""))
+    red = sprites.create(assets.image("""red_static"""), SpriteKind.player)
+    tiles.place_on_tile(red, tiles.get_tile_location(3, 3))
+    controller.move_sprite(red)
+    scene.camera_follow_sprite(red)
 
 def bottom_text_sprite():
     global text_sprite
@@ -449,5 +459,53 @@ def on_b_pressed():
         pause(200)
         start_game()
 controller.B.on_event(ControllerButtonEvent.PRESSED, on_b_pressed)
+
+def on_left_pressed():
+    global on_game
+    if on_game == True:
+        animation.run_image_animation(red, assets.animation("""red_left"""), 200, True)
+
+def on_left_released():
+    if on_game:
+        animation.stop_animation(animation.AnimationTypes.ALL, red)
+        red.set_image(assets.image("""red_static_left"""))
+controller.left.on_event(ControllerButtonEvent.PRESSED, on_left_pressed)
+controller.left.on_event(ControllerButtonEvent.RELEASED, on_left_released)
+
+def on_right_pressed():
+    global on_game
+    if on_game == True:
+        animation.run_image_animation(red, assets.animation("""red_right"""), 200, True)
+
+def on_right_released():
+    if on_game:
+        animation.stop_animation(animation.AnimationTypes.ALL, red)
+        red.set_image(assets.image("""red_static_right"""))
+controller.right.on_event(ControllerButtonEvent.PRESSED, on_right_pressed)
+controller.right.on_event(ControllerButtonEvent.RELEASED, on_right_released)
+
+def on_up_pressed():
+    global on_game
+    if on_game == True:
+        animation.run_image_animation(red, assets.animation("""red_up"""), 200, True)
+
+def on_up_released():
+    if on_game:
+        animation.stop_animation(animation.AnimationTypes.ALL, red)
+        red.set_image(assets.image("""red_static_up"""))
+controller.up.on_event(ControllerButtonEvent.PRESSED, on_up_pressed)
+controller.up.on_event(ControllerButtonEvent.RELEASED, on_up_released)
+
+def on_down_pressed():
+    global on_game
+    if on_game == True:
+        animation.run_image_animation(red, assets.animation("""red_down"""), 200, True)
+
+def on_down_released():
+    if on_game:
+        animation.stop_animation(animation.AnimationTypes.ALL, red)
+        red.set_image(assets.image("""red_static_down"""))
+controller.down.on_event(ControllerButtonEvent.PRESSED, on_down_pressed)
+controller.down.on_event(ControllerButtonEvent.RELEASED, on_down_released)
 
 start_screen()
