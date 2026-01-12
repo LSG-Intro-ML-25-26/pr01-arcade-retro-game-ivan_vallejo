@@ -418,6 +418,54 @@
         "tilemapTile": true,
         "displayName": "bed1"
     },
+    "tile70": {
+        "data": "hwQQABAAAAARERER0b32+xERERHR/fa/EREREdH99rsRERER0f32uxERERHR/fa7EREREdH99rsRERER0f32uxERERHR/fa7EREREdH99rsRERER0f32uxERERHR/fa7EREREdH99rsRERER3f32uxEREdHR/fa7ERERHd399r8REdHR0b32/Q==",
+        "mimeType": "image/x-mkcd-f4",
+        "tilemapTile": true,
+        "displayName": "bed2"
+    },
+    "tile71": {
+        "data": "hwQQABAAAAAREREd3d3/+93d3d3d3f2/u7u7u7u7+7v///////+/u7u7u7u7u7u7V1VXVVdVVVVXVVdVV1VVVVdVV1VXVVVVd3d3d3d3d3dXVVVVV1VXVVdVVVVXVVdVV1VVVVdVV1V3d3d3V1VXVVdVVVVXVVdVW1VVVVdVV1VbVVVVV1VXVQ==",
+        "mimeType": "image/x-mkcd-f4",
+        "tilemapTile": true,
+        "displayName": "bed3"
+    },
+    "tile72": {
+        "data": "hwQQABAAAAC7e3d3d3d3u1tVV1VXVVVVW1VXVVdVVVVXVVdVV1VVVVdVV1V3d3d3V1VXVVdVVVVXVVdVV1VVVVdVV1VXVVVVd3d3d3d3d3dXVVVVV1VXVVdVVVVXVVdVV1VVVVdVV1V3d3d3V///////////mRkZ0d39mZ+ZkRH9/4+InZmREQ==",
+        "mimeType": "image/x-mkcd-f4",
+        "tilemapTile": true,
+        "displayName": "bed4"
+    },
+    "tile73": {
+        "data": "hwQQABAAAAC/e4/YmRkZEV9Vj/iZGRkRX/X//5kZGRFfHxHxmRkZEV8fEfGZGRkRXx8R8ZkZGRFfHxHxmRkZEV8fEfGZGRkRfx8R8ZkZGRFfHxHxmRkZEV8fEf2ZGRkRXx/R/ZkZGRF/3939mRkZEV+/u/uZGRkRX/X//5kZGRFfVY/YmRkZEQ==",
+        "mimeType": "image/x-mkcd-f4",
+        "tilemapTile": true,
+        "displayName": "bed5"
+    },
+    "tile74": {
+        "data": "hwQQABAAAAD7/4+InZmREbu7+4ifmZ3d//////+ZublXVVdVu////1dVV1W7u7u7V1VXVVdVVVVXVVdVV1VVVVdVV1VXVVVVd3d3d3d3d3dXVVVVV1VXVVdVVVVXVVdVV1VVVVdVV1V3d3d3V1VXVVdVVVVXVVdVW1VVVVdVV1VbVVVVV1VXVQ==",
+        "mimeType": "image/x-mkcd-f4",
+        "tilemapTile": true,
+        "displayName": "bed6"
+    },
+    "tile75": {
+        "data": "hwQQABAAAAC7e3d3d3d3u1tVV1VXVVVVW1VXVVdVVVVXVVdVV1VVVVdVV1V3d3d3V1VXVVdVVVVXVVdVV1VVVVdVV1VXVVVVd3d3d3d3d3dXVVVVV1VXVVdVVVVXVVdVV1VVVVdVV1V3d3d3V1VXVVdVVVVXVVdVW1VVVVdVV/VbVVVVV1VXHw==",
+        "mimeType": "image/x-mkcd-f4",
+        "tilemapTile": true,
+        "displayName": "bed7"
+    },
+    "tile76": {
+        "data": "hwQQABAAAAC7e3d3d3d3H1tVV1VXVVXfW1VXVVdVVd9XVVdVV1VV31dVV1V3d3ffV1VXVVdVVd9XVVdVV1VV31dVV1VXVVXfd3d3d3d3d99XVVVVV1VX31dVVVVXVVffV1VVVVdVV993d3d3V1VX31dVVVVXVVffW1VVVVdVV99bVVVVV1VXvw==",
+        "mimeType": "image/x-mkcd-f4",
+        "tilemapTile": true,
+        "displayName": "bed8"
+    },
+    "tile77": {
+        "data": "hwQQABAAAAC7e3d3d3d3v1tVV1VXVVX1W1VXVVdVVVVXVVdVV1VVVVdVV1V3d3d3V1VXVVdVVVVXVVdVV1VVVVdVV1VXVVVVd3d3d3d3d3dXVVVVV1VXVVdVVVVXVVdVV1VVVVdVV1V3d3d3V1VXVVdVVVVXVVdVW1VVVVdVV1VbVVVVV1VXVQ==",
+        "mimeType": "image/x-mkcd-f4",
+        "tilemapTile": true,
+        "displayName": "bed9"
+    },
     "Red_House_F1": {
         "id": "Red_House_F1",
         "mimeType": "application/mkcd-tilemap",
@@ -481,7 +529,7 @@
     "Red_House_F2": {
         "id": "Red_House_F2",
         "mimeType": "application/mkcd-tilemap",
-        "data": "MTAwYzAwMDkwMDAyMDgwMzAzMGYxMDAzMDMwMzAzMDMwMzAyMDYwNzBhMGUwZDFiMWIxYjFiMWIxYjAyMDQwNTA5MGIwYzAxMDEwMDAwMWMwMTAyMDEwMTAxMDEwMTFlMDEwMDAwMWQwMTAyMDEwMTAxMTcxNjE5MTYxNTAxMDEwMTAyMDEwMTAxMTgxZjFhMWYxNDAxMDEwMTAyMDEwMTAxMTgxZjIwMWYxNDAxMDEwMTAyMDEwMTAxMTExMjEyMTIxMzAxMDEwMTAyMDEwMTAxMDEwMTAxMDEwMTAxMDEwMTAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMA==",
+        "data": "MTAwYzAwMDkwMDAyMDgwMzAzMGYxMDAzMDMwMzAzMDMwMzAyMDYwNzBhMGUwZDFiMWIxYjFiMWIxYjAyMDQwNTA5MGIwYzAxMDEwMDAwMWMwMTAyMDEwMTAxMDEwMTFlMDEwMDAwMWQwMTAyMjcyODI5MTcxNjE5MTYxNTAxMDEwMTAyMjQyNTI2MTgxZjFhMWYxNDAxMDEwMTAyMjEyMjIzMTgxZjIwMWYxNDAxMDEwMTAyMDEwMTAxMTExMjEyMTIxMzAxMDEwMTAyMDEwMTAxMDEwMTAxMDEwMTAxMDEwMTIwMjIyMjIyMDAwMDIwMjIyMjIyMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAyMDAwMDAwMDIwMDAyMDAwMDAwMDIwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMA==",
         "tileset": [
             "myTiles.transparency16",
             "myTiles.tile1",
@@ -515,7 +563,16 @@
             "myTiles.tile44",
             "myTiles.tile66",
             "myTiles.tile67",
-            "myTiles.tile68"
+            "myTiles.tile68",
+            "myTiles.tile69",
+            "myTiles.tile70",
+            "myTiles.tile71",
+            "myTiles.tile72",
+            "myTiles.tile73",
+            "myTiles.tile74",
+            "myTiles.tile75",
+            "myTiles.tile76",
+            "myTiles.tile77"
         ],
         "displayName": "Red_House_F3"
     },
