@@ -473,24 +473,10 @@ controller.left.onEvent(ControllerButtonEvent.Pressed, function on_left_pressed(
     }
     
 })
-controller.left.onEvent(ControllerButtonEvent.Released, function on_left_released() {
-    if (on_game) {
-        animation.stopAnimation(animation.AnimationTypes.All, red)
-        red.setImage(assets.image`red_static_left`)
-    }
-    
-})
 controller.right.onEvent(ControllerButtonEvent.Pressed, function on_right_pressed() {
     
     if (on_game == true) {
         animation.runImageAnimation(red, assets.animation`red_right`, 200, true)
-    }
-    
-})
-controller.right.onEvent(ControllerButtonEvent.Released, function on_right_released() {
-    if (on_game) {
-        animation.stopAnimation(animation.AnimationTypes.All, red)
-        red.setImage(assets.image`red_static_right`)
     }
     
 })
@@ -501,13 +487,6 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function on_up_pressed() {
     }
     
 })
-controller.up.onEvent(ControllerButtonEvent.Released, function on_up_released() {
-    if (on_game) {
-        animation.stopAnimation(animation.AnimationTypes.All, red)
-        red.setImage(assets.image`red_static_up`)
-    }
-    
-})
 controller.down.onEvent(ControllerButtonEvent.Pressed, function on_down_pressed() {
     
     if (on_game == true) {
@@ -515,10 +494,12 @@ controller.down.onEvent(ControllerButtonEvent.Pressed, function on_down_pressed(
     }
     
 })
-controller.down.onEvent(ControllerButtonEvent.Released, function on_down_released() {
+game.onUpdate(function on_on_update() {
     if (on_game) {
-        animation.stopAnimation(animation.AnimationTypes.All, red)
-        red.setImage(assets.image`red_static_down`)
+        if (red.vx == 0 && red.vy == 0) {
+            animation.stopAnimation(animation.AnimationTypes.All, red)
+        }
+        
     }
     
 })

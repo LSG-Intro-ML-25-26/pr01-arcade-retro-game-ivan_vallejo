@@ -464,48 +464,30 @@ def on_left_pressed():
     global on_game
     if on_game == True:
         animation.run_image_animation(red, assets.animation("""red_left"""), 200, True)
-
-def on_left_released():
-    if on_game:
-        animation.stop_animation(animation.AnimationTypes.ALL, red)
-        red.set_image(assets.image("""red_static_left"""))
 controller.left.on_event(ControllerButtonEvent.PRESSED, on_left_pressed)
-controller.left.on_event(ControllerButtonEvent.RELEASED, on_left_released)
 
 def on_right_pressed():
     global on_game
     if on_game == True:
         animation.run_image_animation(red, assets.animation("""red_right"""), 200, True)
-
-def on_right_released():
-    if on_game:
-        animation.stop_animation(animation.AnimationTypes.ALL, red)
-        red.set_image(assets.image("""red_static_right"""))
 controller.right.on_event(ControllerButtonEvent.PRESSED, on_right_pressed)
-controller.right.on_event(ControllerButtonEvent.RELEASED, on_right_released)
 
 def on_up_pressed():
     global on_game
     if on_game == True:
         animation.run_image_animation(red, assets.animation("""red_up"""), 200, True)
-
-def on_up_released():
-    if on_game:
-        animation.stop_animation(animation.AnimationTypes.ALL, red)
-        red.set_image(assets.image("""red_static_up"""))
 controller.up.on_event(ControllerButtonEvent.PRESSED, on_up_pressed)
-controller.up.on_event(ControllerButtonEvent.RELEASED, on_up_released)
 
 def on_down_pressed():
     global on_game
     if on_game == True:
         animation.run_image_animation(red, assets.animation("""red_down"""), 200, True)
-
-def on_down_released():
-    if on_game:
-        animation.stop_animation(animation.AnimationTypes.ALL, red)
-        red.set_image(assets.image("""red_static_down"""))
 controller.down.on_event(ControllerButtonEvent.PRESSED, on_down_pressed)
-controller.down.on_event(ControllerButtonEvent.RELEASED, on_down_released)
 
+def on_on_update():
+    if on_game:
+        if red.vx == 0 and red.vy == 0:
+            animation.stop_animation(animation.AnimationTypes.ALL, red)
+
+game.on_update(on_on_update)
 start_screen()
