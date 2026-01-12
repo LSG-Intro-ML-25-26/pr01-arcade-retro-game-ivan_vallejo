@@ -4,6 +4,7 @@ text_sprite: TextSprite = None
 text_sprite_oak: TextSprite = None
 on_game = False
 red: Sprite = None
+current_map = ""
 player_name = ""
 
 def start_screen():
@@ -420,12 +421,22 @@ def start_game():
         return
     on_oak_intro = False
     on_game = True
-    scene.set_background_color(15)
-    tiles.set_current_tilemap(tilemap("""Red_House_F3"""))
     red = sprites.create(assets.image("""red_static"""), SpriteKind.player)
-    tiles.place_on_tile(red, tiles.get_tile_location(6, 7))
     controller.move_sprite(red)
     scene.camera_follow_sprite(red)
+    player_room(6, 7)
+
+def player_room(x, y):
+    global red, current_map
+    current_map = "player_room"
+    tiles.set_current_tilemap(tilemap("""Red_House_F3"""))
+    tiles.place_on_tile(red, tiles.get_tile_location(x, y))
+
+def player_house(x, y):
+    global red, current_map
+    current_map = "player_house"
+    tiles.set_current_tilemap(tilemap("""Red_House_F0"""))
+    tiles.place_on_tile(red, tiles.get_tile_location(x, y))
 
 def bottom_text_sprite():
     global text_sprite
@@ -488,6 +499,20 @@ def on_on_update():
     if on_game:
         if red.vx == 0 and red.vy == 0:
             animation.stop_animation(animation.AnimationTypes.ALL, red)
+
+def on_overlap_upstairs(sprite, location):
+    global current_map
+    if current_map == "player_house":
+        player_room(10, 2)
+
+scene.on_overlap_tile(SpriteKind.player, assets.tile("""stairs_mid_left"""), on_overlap_upstairs)
+
+def on_overlap_downstairs(sprite, location):
+    global current_map
+    if current_map == "player_room":
+        player_house(10, 2)
+
+scene.on_overlap_tile(SpriteKind.player, assets.tile("""downstairs4"""), on_overlap_downstairs)
 
 game.on_update(on_on_update)
 start_screen()

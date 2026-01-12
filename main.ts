@@ -4,6 +4,7 @@ let text_sprite : TextSprite = null
 let text_sprite_oak : TextSprite = null
 let on_game = false
 let red : Sprite = null
+let current_map = ""
 let player_name = ""
 function start_screen() {
     
@@ -421,12 +422,24 @@ function start_game() {
     
     on_oak_intro = false
     on_game = true
-    scene.setBackgroundColor(15)
-    tiles.setCurrentTilemap(tilemap`Red_House_F3`)
     red = sprites.create(assets.image`red_static`, SpriteKind.Player)
-    tiles.placeOnTile(red, tiles.getTileLocation(6, 7))
     controller.moveSprite(red)
     scene.cameraFollowSprite(red)
+    player_room(6, 7)
+}
+
+function player_room(x: number, y: number) {
+    
+    current_map = "player_room"
+    tiles.setCurrentTilemap(tilemap`Red_House_F3`)
+    tiles.placeOnTile(red, tiles.getTileLocation(x, y))
+}
+
+function player_house(x: number, y: number) {
+    
+    current_map = "player_house"
+    tiles.setCurrentTilemap(tilemap`Red_House_F0`)
+    tiles.placeOnTile(red, tiles.getTileLocation(x, y))
 }
 
 function bottom_text_sprite() {
@@ -491,6 +504,20 @@ controller.down.onEvent(ControllerButtonEvent.Pressed, function on_down_pressed(
     
     if (on_game == true) {
         animation.runImageAnimation(red, assets.animation`red_down`, 200, true)
+    }
+    
+})
+scene.onOverlapTile(SpriteKind.Player, assets.tile`stairs_mid_left`, function on_overlap_upstairs(sprite: Sprite, location: tiles.Location) {
+    
+    if (current_map == "player_house") {
+        player_room(10, 2)
+    }
+    
+})
+scene.onOverlapTile(SpriteKind.Player, assets.tile`downstairs4`, function on_overlap_downstairs(sprite: Sprite, location: tiles.Location) {
+    
+    if (current_map == "player_room") {
+        player_house(10, 2)
     }
     
 })
