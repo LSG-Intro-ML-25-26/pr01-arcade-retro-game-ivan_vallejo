@@ -422,9 +422,9 @@ function start_game() {
     on_oak_intro = false
     on_game = true
     scene.setBackgroundColor(15)
-    tiles.setCurrentTilemap(tilemap`Red_House_F0`)
+    tiles.setCurrentTilemap(tilemap`Red_House_F3`)
     red = sprites.create(assets.image`red_static`, SpriteKind.Player)
-    tiles.placeOnTile(red, tiles.getTileLocation(3, 3))
+    tiles.placeOnTile(red, tiles.getTileLocation(6, 7))
     controller.moveSprite(red)
     scene.cameraFollowSprite(red)
 }

@@ -421,9 +421,9 @@ def start_game():
     on_oak_intro = False
     on_game = True
     scene.set_background_color(15)
-    tiles.set_current_tilemap(tilemap("""Red_House_F0"""))
+    tiles.set_current_tilemap(tilemap("""Red_House_F3"""))
     red = sprites.create(assets.image("""red_static"""), SpriteKind.player)
-    tiles.place_on_tile(red, tiles.get_tile_location(3, 3))
+    tiles.place_on_tile(red, tiles.get_tile_location(6, 7))
     controller.move_sprite(red)
     scene.camera_follow_sprite(red)
 
