@@ -652,6 +652,24 @@
         "tilemapTile": true,
         "displayName": "lab_asset5"
     },
+    "tile109": {
+        "data": "hwQQABAAAAARERsREREbERERsREREbERERGxGxERsRsREduxERHb8RuxHREbsR0fsdsREbHb8R0RGxERERv/HxGxERER8fH/EREbERHxEf8REbERER8RLxERERsRH/EyERERsREf8RMbERER+xEvE7ERERHxES80ERsREfERL0QRsRER8REvRA==",
+        "mimeType": "image/x-mkcd-f4",
+        "tilemapTile": true,
+        "displayName": "lab_machine1"
+    },
+    "tile110": {
+        "data": "hwQQABAAAAARERsRERH7/xERsRERER/R8f///xHx8f/f3b27//Ed0REREb27390RERER0bv7iBsRERERvbufif8iFBHRu/vdIiIiEdG7+91EJCISEb27n0NEIkIRzcyfMUQiIhGxzMwxRCQiFLHM/ENEJCISscz8REQkIhKxzPxERCQiErHM/A==",
+        "mimeType": "image/x-mkcd-f4",
+        "tilemapTile": true,
+        "displayName": "lab_machine2"
+    },
+    "tile111": {
+        "data": "hwQQABAAAAD/HBsRu///HB3PzBz73dvP////zx/Rvf3d3R3xEdG9/dHdHRwR0b37Ed0dHBHd/88Y0R3B0f3MHI0Ru7v7z88c3di9u7u7zxyZ3M3MzMz8HJn53czMzPzMZvnd/P///89mlt/93d27z2aW3/0b27vPZpbf/bHRu89mlt/9G9u7zw==",
+        "mimeType": "image/x-mkcd-f4",
+        "tilemapTile": true,
+        "displayName": "lab_machine3"
+    },
     "Red_House_F1": {
         "id": "Red_House_F1",
         "mimeType": "application/mkcd-tilemap",
@@ -832,7 +850,7 @@
     "Laboratory1": {
         "id": "Laboratory1",
         "mimeType": "application/mkcd-tilemap",
-        "data": "MTAwZDAwMGUwMDAxMTUxNTAwMDAwMDAwMDAwMDAwMDAwMDAwMDIxNjAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwNDE3MDAwMDAwMDAwMDAwMDAwMDAwMDAwMDA2MDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDYwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMzAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAzMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDcwNzBhMDcwYTAzMDMwMzA3MGEwNzBhMDcwODA4MGIwODBiMDMwMzAzMDgwYjA4MGIwODA5MDkwYzA5MGMwMzAzMDMwOTBjMDkwYzA5MDMwMzAzMDMwMzAzMDMwMzAzMDMwMzAzMDMwZDAzMDMwMzAzMDMwMzAzMDMwMzAzMDMwZDBlMDMwMzAzMDMwZjEwMTEwMzAzMDMwMzBlMDUwNTA1MDUwNTEyMTMxNDA1MDUwNTA1MDUwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMA==",
+        "data": "MTAwZDAwMGUwMDAxMTUxNTAwMDAwMDAwMDAwMDAwMDAwMDAwMDIxNjAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwNDE3MDAwMDAwMDAwMDAwMDAwMDAwMDAwMDA2MTgwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDYxOTAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMzFhMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAzMDMwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDcwNzBhMDcwYTAzMDMwMzA3MGEwNzBhMDcwODA4MGIwODBiMDMwMzAzMDgwYjA4MGIwODA5MDkwYzA5MGMwMzAzMDMwOTBjMDkwYzA5MDMwMzAzMDMwMzAzMDMwMzAzMDMwMzAzMDMwZDAzMDMwMzAzMDMwMzAzMDMwMzAzMDMwZDBlMDMwMzAzMDMwZjEwMTEwMzAzMDMwMzBlMDUwNTA1MDUwNTEyMTMxNDA1MDUwNTA1MDUwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMA==",
         "tileset": [
             "myTiles.transparency16",
             "myTiles.tile87",
@@ -857,7 +875,10 @@
             "myTiles.tile106",
             "myTiles.tile88",
             "myTiles.tile107",
-            "myTiles.tile108"
+            "myTiles.tile108",
+            "myTiles.tile109",
+            "myTiles.tile110",
+            "myTiles.tile111"
         ],
         "displayName": "Laboratory"
     },
