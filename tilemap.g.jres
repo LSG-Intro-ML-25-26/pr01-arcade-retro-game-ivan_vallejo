@@ -766,6 +766,42 @@
         "tilemapTile": true,
         "displayName": "library_wall2"
     },
+    "tile128": {
+        "data": "hwQQABAAAAB317H7zBEbEXfXsfvMEbERd9ex+8wRsRt317H7zBHbsXfXsfvMsR0Rd9ex+8zbERF317H7zBsREXfXsfvMsRERd9ex+8wRGxF317H7zBGxEXfXsfv/HxEbd9ex+8z7EbF317H7zPsREd3dsfvM+xERERGx+//PERH/////zMwREQ==",
+        "mimeType": "image/x-mkcd-f4",
+        "tilemapTile": true,
+        "displayName": "lab_table_down_right"
+    },
+    "tile129": {
+        "data": "hwQQABAAAAB317H7zBEbEXfXsfvMEbERd9ex+8wRsRt317H7zBHbsXfXsfvMsR0Rd9ex+8zbERF317H7zBsREXfXsfvMsRERd9ex+8wRGxF317H7zBGxEXfXsfvMEREbd9ex+8wREbF317H7zBEREXfXsfvMERERd9ex+8wbERF317H7zLEREQ==",
+        "mimeType": "image/x-mkcd-f4",
+        "tilemapTile": true,
+        "displayName": "lab_table_down_mid"
+    },
+    "tile130": {
+        "data": "hwQQABAAAAD/////EREbERERsfv/H7ER3d2x+8z7sRt317H7zPvbsXfXsfvM+x0Rd9ex+//fERF317H7zBsREXfXsfvMsRERd9ex+8wRGxF317H7zBGxEXfXsfvMEREbd9ex+8wREbF317H7zBEREXfXsfvMERERd9ex+8wbERF317H7zLEREQ==",
+        "mimeType": "image/x-mkcd-f4",
+        "tilemapTile": true,
+        "displayName": "lab_table_down_left"
+    },
+    "tile131": {
+        "data": "hwQQABAAAAAREf///////xHxEREREREREfHR3d3d3d0R8dF3d3d3dxvx0Xd3d3d3sfvRd3d3d3cR+9F3d3d3dxHx0Xd3d3d3EfHRd3d3d3cR8dF3d3d3dxHx0Xd3d3d3EfHRd3d3d3cb8dF3d3d3d7Hx0Xd3d3d3EfvRd3d3d3cR8dF3d3d3dw==",
+        "mimeType": "image/x-mkcd-f4",
+        "tilemapTile": true,
+        "displayName": "lab_table_up_left"
+    },
+    "tile132": {
+        "data": "hwQQABAAAAAR8dF3d3d3dxHx0Xd3d3d3EfHRd3d3d3cR8dF3d3d3dxvx0Xd3d3d3sfvRd3d3d3cR+9F3d3d3dxHx0Xd3d3d3EfHRd3d3d3cR8dF3d3d3dxHx0Xd3d3d3EfHRd3d3d3cb8dF3d3d3d7Hx0Xd3d3d3EfvRd3d3d3cR8dF3d3d3dw==",
+        "mimeType": "image/x-mkcd-f4",
+        "tilemapTile": true,
+        "displayName": "lab_table_up_mid"
+    },
+    "tile133": {
+        "data": "hwQQABAAAAAR8dF3d3d3dxHx0Xd3d3d3EfHRd3d3d3cR8dF3d3d3dxvx0Xd3d3d3sfvRd3d3d3cR+9F3d3d3dxHx0Xd3d3d3EfHRd3d3d3cR8dF3d3d3dxHx0Xd3d3d3EfHRd3d3d3cb8dF3d3d3d7Hx0d3d3d3dEfsRERERERERsf///////w==",
+        "mimeType": "image/x-mkcd-f4",
+        "tilemapTile": true,
+        "displayName": "lab_table_up_right"
+    },
     "Red_House_F1": {
         "id": "Red_House_F1",
         "mimeType": "application/mkcd-tilemap",
@@ -946,7 +982,7 @@
     "Laboratory1": {
         "id": "Laboratory1",
         "mimeType": "application/mkcd-tilemap",
-        "data": "MTAwZDAwMGUwMDAxMTUxNTIyMTUxNTI2MjYyODJhMjkyYTI5MDIxNjFlMjAyNDIzMjUyNTI3MDgwYjA4MGIwNDE3MWYyMTFmMjEwMzAzMDMwOTBjMDkwYzA2MTgxYjAzMDMwMzAzMDMwMzAzMDMwMzAzMDYxOTFjMDMwMzAzMDMwMzAzMDMwMzAzMDMwMzFhMWQwMzAzMDMwMzAzMDMwMzAzMDMwMzAzMDMwMzAzMDMwMzAzMDMwMzAzMDMwMzAzMDcwNzBhMDcwYTAzMDMwMzA3MGEwNzBhMDcwODA4MGIwODBiMDMwMzAzMDgwYjA4MGIwODA5MDkwYzA5MGMwMzAzMDMwOTBjMDkwYzA5MDMwMzAzMDMwMzAzMDMwMzAzMDMwMzAzMDMwZDAzMDMwMzAzMDMwMzAzMDMwMzAzMDMwZDBlMDMwMzAzMDMwZjEwMTEwMzAzMDMwMzBlMDUwNTA1MDUwNTEyMTMxNDA1MDUwNTA1MDUwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMA==",
+        "data": "MTAwZDAwMGUwMDAxMTUxNTIyMTUxNTI2MjYyODJhMjkyYTI5MDIxNjFlMjAyNDIzMjUyNTI3MDgwYjA4MGIwNDE3MWYyMTFmMjEwMzAzMDMwOTBjMDkwYzA2MTgxYjAzMDMwMzAzMDMwMzAzMDMwMzAzMDYxOTFjMDMwMzAzMDMwMzJlMmYzMDAzMDMwNjFhMWQwMzAzMDMwMzAzMmQyYzJiMDMwMzA2MDYwNjAzMDMwMzAzMDMwMzAzMDMwMzAzMDcwNzBhMDcwYTAzMDMwMzA3MGEwNzBhMDcwODA4MGIwODBiMDMwMzAzMDgwYjA4MGIwODA5MDkwYzA5MGMwMzAzMDMwOTBjMDkwYzA5MDMwMzAzMDMwMzAzMDMwMzAzMDMwMzAzMDMwZDAzMDMwMzAzMDMwMzAzMDMwMzAzMDMwZDBlMDMwMzAzMDMwZjEwMTEwMzAzMDMwMzBlMDUwNTA1MDUwNTEyMTMxNDA1MDUwNTA1MDUyMjIyMjIyMjIyMjIyMjIyMjIwMjAwMjIyMjAyMDAwMDAwMDAwMDIwMDAwMDAwMDAwMDAwMjIwMjAwMDAyMjAyMjAyMjAwMDAwMDAwMDAyMjAyMDAwMDAwMDAyMDIyMjIwMDIwMjIyMjIyMjIwMjAwMjIyMjAyMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMjAwMDAwMDAwMDAwMjAwMjAwMDAwMDAwMDAyMjIyMjIwMjIyMjIyMg==",
         "tileset": [
             "myTiles.transparency16",
             "myTiles.tile87",
@@ -990,7 +1026,13 @@
             "myTiles.tile124",
             "myTiles.tile125",
             "myTiles.tile126",
-            "myTiles.tile127"
+            "myTiles.tile127",
+            "myTiles.tile128",
+            "myTiles.tile129",
+            "myTiles.tile130",
+            "myTiles.tile131",
+            "myTiles.tile132",
+            "myTiles.tile133"
         ],
         "displayName": "Laboratory"
     },

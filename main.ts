@@ -431,7 +431,7 @@ function start_game() {
 function player_room(x: number, y: number) {
     
     current_map = "player_room"
-    tiles.setCurrentTilemap(tilemap`Red_House_F3`)
+    tiles.setCurrentTilemap(tilemap`Laboratory`)
     tiles.placeOnTile(red, tiles.getTileLocation(x, y))
 }
 

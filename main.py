@@ -429,7 +429,7 @@ def start_game():
 def player_room(x, y):
     global red, current_map
     current_map = "player_room"
-    tiles.set_current_tilemap(tilemap("""Red_House_F3"""))
+    tiles.set_current_tilemap(tilemap("""Laboratory"""))
     tiles.place_on_tile(red, tiles.get_tile_location(x, y))
 
 def player_house(x, y):
