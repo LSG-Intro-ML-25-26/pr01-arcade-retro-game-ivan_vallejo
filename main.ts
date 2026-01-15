@@ -6,6 +6,7 @@ let on_game = false
 let red : Sprite = null
 let current_map = ""
 let player_name = ""
+// color.set_color(5, color.rgb(34, 139, 34))
 function start_screen() {
     
     on_start_screen = true
@@ -431,7 +432,7 @@ function start_game() {
 function player_room(x: number, y: number) {
     
     current_map = "player_room"
-    tiles.setCurrentTilemap(tilemap`Laboratory`)
+    tiles.setCurrentTilemap(tilemap`Red_House_F3`)
     tiles.placeOnTile(red, tiles.getTileLocation(x, y))
 }
 

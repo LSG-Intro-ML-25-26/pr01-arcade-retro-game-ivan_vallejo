@@ -6,6 +6,7 @@ on_game = False
 red: Sprite = None
 current_map = ""
 player_name = ""
+#color.set_color(5, color.rgb(34, 139, 34))
 
 def start_screen():
     global on_start_screen
@@ -429,7 +430,7 @@ def start_game():
 def player_room(x, y):
     global red, current_map
     current_map = "player_room"
-    tiles.set_current_tilemap(tilemap("""Laboratory"""))
+    tiles.set_current_tilemap(tilemap("""Red_House_F3"""))
     tiles.place_on_tile(red, tiles.get_tile_location(x, y))
 
 def player_house(x, y):
