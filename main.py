@@ -6,7 +6,29 @@ on_game = False
 red: Sprite = None
 current_map = ""
 player_name = ""
-#color.set_color(5, color.rgb(34, 139, 34))
+#Comando cambiar color:
+#color.set_color(3, color.rgb(131, 213, 98))
+#color.set_color(5, color.rgb(246, 238, 197))
+#color.set_color(6, color.rgb(189, 255, 139))
+#color.set_color(7, color.rgb(57, 148, 49))
+#color.set_color(10, color.rgb(57, 90, 16))
+#color.set_color(12, color.rgb(123, 123, 131))
+
+#Comando volver color original:
+#color.set_color(3, color.rgb(255, 147, 196))
+#color.set_color(5, color.rgb(255, 246, 9))
+#color.set_color(6, color.rgb(36, 156, 163))
+#color.set_color(7, color.rgb(120, 220, 82)
+#color.set_color(10, color.rgb(142, 46, 192))
+#color.set_color(12, color.rgb(92, 64, 108))
+
+#Colores a cambiar para pueblo paleta:
+#Color 3 rgb(255, 147, 196) por color rgb(131, 213, 98) (Verde neutro césped)
+#Color 5 rgb(255, 246, 9) por color rgb(246, 238, 197) (Pared lab)
+#Color 6 rgb(36, 156, 163) por color rgb(189, 255, 139) (Verde clarito copa arbol y caminos)
+#Color 7 rgb(120, 220, 82) por color rgb(57, 148, 49) (Verde un poco oscuro arbol)
+#Color 10 rgb(142, 46, 192) por color rgb(57, 90, 16) (Verde muy oscuro arbol)
+#Color 12 rgb(92, 64, 108) por color rgb(123, 123, 131) (Gris oscuro)
 
 def start_screen():
     global on_start_screen
@@ -425,12 +447,25 @@ def start_game():
     red = sprites.create(assets.image("""red_static"""), SpriteKind.player)
     controller.move_sprite(red)
     scene.camera_follow_sprite(red)
-    player_room(6, 7)
+    #player_room(6, 7)
+    pallet_town(6, 7)
 
 def player_room(x, y):
     global red, current_map
     current_map = "player_room"
     tiles.set_current_tilemap(tilemap("""Red_House_F3"""))
+    tiles.place_on_tile(red, tiles.get_tile_location(x, y))
+
+def pallet_town(x,y):
+    global red, current_map
+    current_map = "pallet_town"
+    tiles.set_current_tilemap(tilemap("""test_color_fading"""))
+    color.set_color(3, color.rgb(131, 213, 98))
+    color.set_color(5, color.rgb(246, 238, 197))
+    color.set_color(6, color.rgb(189, 255, 139))
+    color.set_color(7, color.rgb(57, 148, 49))
+    color.set_color(10, color.rgb(57, 90, 16))
+    color.set_color(12, color.rgb(123, 123, 131))
     tiles.place_on_tile(red, tiles.get_tile_location(x, y))
 
 def player_house(x, y):
