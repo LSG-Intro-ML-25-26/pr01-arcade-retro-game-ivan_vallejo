@@ -459,7 +459,7 @@ def player_room(x, y):
 def pallet_town(x,y):
     global red, current_map
     current_map = "pallet_town"
-    tiles.set_current_tilemap(tilemap("""test_color_fading"""))
+    tiles.set_current_tilemap(tilemap("""Pallet_Town"""))
     color.set_color(3, color.rgb(131, 213, 98))
     color.set_color(5, color.rgb(246, 238, 197))
     color.set_color(6, color.rgb(189, 255, 139))

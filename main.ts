@@ -460,7 +460,7 @@ function player_room(x: number, y: number) {
 function pallet_town(x: number, y: number) {
     
     current_map = "pallet_town"
-    tiles.setCurrentTilemap(tilemap`test_color_fading`)
+    tiles.setCurrentTilemap(tilemap`Pallet_Town`)
     color.setColor(3, color.rgb(131, 213, 98))
     color.setColor(5, color.rgb(246, 238, 197))
     color.setColor(6, color.rgb(189, 255, 139))
