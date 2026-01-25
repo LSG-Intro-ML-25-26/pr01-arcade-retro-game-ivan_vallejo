@@ -1360,6 +1360,12 @@
         "tilemapTile": true,
         "displayName": "door0"
     },
+    "tile227": {
+        "data": "hwQQABAAAAD/////////z8wiIiIf/fLM/P///x/98sz8iJj59C/yzPyImPlEIvLM/IiY+UQi8sz8iJj5RCLyzPyImPlEIvLM/IiY+UQi8sz8iJj5RCLyzPyImPlEIvLM/IiY+UQi8sz8iJj5RCLyzPz///9EIvLMzEJEREQi8sz/////////zw==",
+        "mimeType": "image/x-mkcd-f4",
+        "tilemapTile": true,
+        "displayName": "rivaldoor"
+    },
     "Red_House_F1": {
         "id": "Red_House_F1",
         "mimeType": "application/mkcd-tilemap",
@@ -1692,7 +1698,7 @@
             "myTiles.tile223",
             "myTiles.tile224",
             "myTiles.tile225",
-            "myTiles.tile226"
+            "myTiles.tile227"
         ],
         "displayName": "Pallet_Town"
     },

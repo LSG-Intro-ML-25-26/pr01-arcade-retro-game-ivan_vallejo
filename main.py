@@ -447,8 +447,7 @@ def start_game():
     red = sprites.create(assets.image("""red_static"""), SpriteKind.player)
     controller.move_sprite(red)
     scene.camera_follow_sprite(red)
-    #player_room(6, 7)
-    pallet_town(6, 7)
+    player_room(6, 7)
 
 def player_room(x, y):
     global red, current_map
@@ -472,6 +471,36 @@ def player_house(x, y):
     global red, current_map
     current_map = "player_house"
     tiles.set_current_tilemap(tilemap("""Red_House_F0"""))
+    color.set_color(3, color.rgb(255, 147, 196))
+    color.set_color(5, color.rgb(255, 246, 9))
+    color.set_color(6, color.rgb(36, 156, 163))
+    color.set_color(7, color.rgb(120, 220, 82))
+    color.set_color(10, color.rgb(142, 46, 192))
+    color.set_color(12, color.rgb(92, 64, 108))
+    tiles.place_on_tile(red, tiles.get_tile_location(x, y))
+
+def rival_house(x, y):
+    global red, current_map
+    current_map = "rival_house"
+    tiles.set_current_tilemap(tilemap("""Rival_House"""))
+    color.set_color(3, color.rgb(255, 147, 196))
+    color.set_color(5, color.rgb(255, 246, 9))
+    color.set_color(6, color.rgb(36, 156, 163))
+    color.set_color(7, color.rgb(120, 220, 82))
+    color.set_color(10, color.rgb(142, 46, 192))
+    color.set_color(12, color.rgb(92, 64, 108))
+    tiles.place_on_tile(red, tiles.get_tile_location(x, y))
+
+def laboratory(x, y):
+    global red, current_map
+    current_map = "laboratory"
+    tiles.set_current_tilemap(tilemap("""Laboratory"""))
+    color.set_color(3, color.rgb(255, 147, 196))
+    color.set_color(5, color.rgb(255, 246, 9))
+    color.set_color(6, color.rgb(36, 156, 163))
+    color.set_color(7, color.rgb(120, 220, 82))
+    color.set_color(10, color.rgb(142, 46, 192))
+    color.set_color(12, color.rgb(92, 64, 108))
     tiles.place_on_tile(red, tiles.get_tile_location(x, y))
 
 def bottom_text_sprite():
@@ -549,6 +578,43 @@ def on_overlap_downstairs(sprite, location):
         player_house(10, 2)
 
 scene.on_overlap_tile(SpriteKind.player, assets.tile("""downstairs4"""), on_overlap_downstairs)
+
+def enter_player_house(sprite, location):
+    global current_map
+    if current_map == "pallet_town":
+        player_house(4, 7)
+
+scene.on_overlap_tile(SpriteKind.player, assets.tile("""door1"""), enter_player_house)
+
+def enter_rival_house(sprite, location):
+    global current_map
+    if current_map == "pallet_town":
+        rival_house(4, 7)
+
+scene.on_overlap_tile(SpriteKind.player, assets.tile("""rivaldoor"""), enter_rival_house)
+
+def exit_house(sprite, location):
+    global current_map
+    if current_map == "player_house":
+        pallet_town(6, 9)
+    elif current_map == "rival_house":
+        pallet_town(15, 9)
+
+scene.on_overlap_tile(SpriteKind.player, assets.tile("""entry_bottom_centre"""), exit_house)
+
+def enter_lab(sprite, location):
+    global current_map
+    if current_map == "pallet_town":
+        laboratory(6, 12)
+
+scene.on_overlap_tile(SpriteKind.player, assets.tile("""lab_entry"""), enter_lab)
+
+def exit_lab(sprite, location):
+    global current_map
+    if current_map == "laboratory":
+        pallet_town(16, 14)
+
+scene.on_overlap_tile(SpriteKind.player, assets.tile("""lab_entry_bottom_center"""), exit_lab)
 
 game.on_update(on_on_update)
 start_screen()
