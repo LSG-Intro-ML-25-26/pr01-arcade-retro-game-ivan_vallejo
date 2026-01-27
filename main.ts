@@ -6,6 +6,8 @@ let on_game = false
 let red : Sprite = null
 let current_map = ""
 let player_name = ""
+let KindNPC = SpriteKind.create()
+let npc_list : NPC[] = []
 // Comando cambiar color:
 // color.set_color(3, color.rgb(131, 213, 98))
 // color.set_color(5, color.rgb(246, 238, 197))
@@ -20,13 +22,44 @@ let player_name = ""
 // color.set_color(7, color.rgb(120, 220, 82)
 // color.set_color(10, color.rgb(142, 46, 192))
 // color.set_color(12, color.rgb(92, 64, 108))
-// Colores a cambiar para pueblo paleta:
-// Color 3 rgb(255, 147, 196) por color rgb(131, 213, 98) (Verde neutro césped)
-// Color 5 rgb(255, 246, 9) por color rgb(246, 238, 197) (Pared lab)
-// Color 6 rgb(36, 156, 163) por color rgb(189, 255, 139) (Verde clarito copa arbol y caminos)
-// Color 7 rgb(120, 220, 82) por color rgb(57, 148, 49) (Verde un poco oscuro arbol)
-// Color 10 rgb(142, 46, 192) por color rgb(57, 90, 16) (Verde muy oscuro arbol)
-// Color 12 rgb(92, 64, 108) por color rgb(123, 123, 131) (Gris oscuro)
+class NPC {
+    name: string
+    dialogue: any[]
+    sprite: Sprite
+    constructor(name: string, image: Image, x: number, y: number, dialogue: any[]) {
+        this.name = name
+        this.dialogue = dialogue
+        this.sprite = sprites.create(image, KindNPC)
+        tiles.placeOnTile(this.sprite, tiles.getTileLocation(x, y))
+        this.sprite.setFlag(SpriteFlag.Ghost, false)
+    }
+    
+    public talk() {
+        for (let line of this.dialogue) {
+            game.showLongText(this.name + ": " + line, DialogLayout.Bottom)
+        }
+    }
+    
+    public destroy() {
+        this.sprite.destroy()
+    }
+    
+}
+
+function clear_map() {
+    
+    for (let s of sprites.allOfKind(KindNPC)) {
+        s.destroy()
+    }
+    npc_list = []
+}
+
+function player_home_npc() {
+    clear_map()
+    let mom = new NPC("Mamá", assets.image`mom_front`, 7, 6, ["Buenos días " + player_name + "!", "Hoy por fin vas a ser un entrenador Pokemon!", "El profesor Oak me ha dicho que vayas a su laboratorio para darte tu primer Pokémon!"])
+    npc_list.push(mom)
+}
+
 function start_screen() {
     
     on_start_screen = true
@@ -473,6 +506,7 @@ function player_house(x: number, y: number) {
     
     current_map = "player_house"
     tiles.setCurrentTilemap(tilemap`Red_House_F0`)
+    player_home_npc()
     color.setColor(3, color.rgb(255, 147, 196))
     color.setColor(5, color.rgb(255, 246, 9))
     color.setColor(6, color.rgb(36, 156, 163))
@@ -523,12 +557,24 @@ function top_text_sprite() {
 }
 
 controller.A.onEvent(ControllerButtonEvent.Pressed, function on_a_pressed() {
+    let diff_x: number;
+    let diff_y: number;
     
     if (on_start_screen == true) {
         on_start_screen = false
         close_start_screen()
         music.stopAllSounds()
         oak_cutscene()
+    } else if (on_game) {
+        for (let npc_entity of npc_list) {
+            diff_x = Math.abs(red.x - npc_entity.sprite.x)
+            diff_y = Math.abs(red.y - npc_entity.sprite.y)
+            if (diff_x < 20 && diff_y < 20) {
+                npc_entity.talk()
+                break
+            }
+            
+        }
     }
     
 })

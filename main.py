@@ -6,6 +6,8 @@ on_game = False
 red: Sprite = None
 current_map = ""
 player_name = ""
+KindNPC = SpriteKind.create()
+npc_list: List[NPC] = []
 #Comando cambiar color:
 #color.set_color(3, color.rgb(131, 213, 98))
 #color.set_color(5, color.rgb(246, 238, 197))
@@ -22,13 +24,30 @@ player_name = ""
 #color.set_color(10, color.rgb(142, 46, 192))
 #color.set_color(12, color.rgb(92, 64, 108))
 
-#Colores a cambiar para pueblo paleta:
-#Color 3 rgb(255, 147, 196) por color rgb(131, 213, 98) (Verde neutro césped)
-#Color 5 rgb(255, 246, 9) por color rgb(246, 238, 197) (Pared lab)
-#Color 6 rgb(36, 156, 163) por color rgb(189, 255, 139) (Verde clarito copa arbol y caminos)
-#Color 7 rgb(120, 220, 82) por color rgb(57, 148, 49) (Verde un poco oscuro arbol)
-#Color 10 rgb(142, 46, 192) por color rgb(57, 90, 16) (Verde muy oscuro arbol)
-#Color 12 rgb(92, 64, 108) por color rgb(123, 123, 131) (Gris oscuro)
+class NPC:
+    def __init__(self, name: str, image: Image, x: int, y: int, dialogue: list):
+        self.name = name
+        self.dialogue = dialogue
+        self.sprite = sprites.create(image, KindNPC)
+        tiles.place_on_tile(self.sprite, tiles.get_tile_location(x, y))
+        self.sprite.set_flag(SpriteFlag.GHOST, False)
+    def talk(self):
+        for line in self.dialogue:
+            game.show_long_text(self.name + ": " + line, DialogLayout.BOTTOM)
+
+    def destroy(self):
+        self.sprite.destroy()
+
+def clear_map():
+    global npc_list
+    for s in sprites.all_of_kind(KindNPC):
+        s.destroy()
+    npc_list = []
+
+def player_home_npc():
+    clear_map()
+    mom = NPC("Mamá", assets.image("""mom_front"""), 7, 6, ["Buenos días " + player_name + "!", "Hoy por fin vas a ser un entrenador Pokemon!", "El profesor Oak me ha dicho que vayas a su laboratorio para darte tu primer Pokémon!"])
+    npc_list.append(mom)
 
 def start_screen():
     global on_start_screen
@@ -471,6 +490,7 @@ def player_house(x, y):
     global red, current_map
     current_map = "player_house"
     tiles.set_current_tilemap(tilemap("""Red_House_F0"""))
+    player_home_npc()
     color.set_color(3, color.rgb(255, 147, 196))
     color.set_color(5, color.rgb(255, 246, 9))
     color.set_color(6, color.rgb(36, 156, 163))
@@ -522,6 +542,14 @@ def on_a_pressed():
         close_start_screen()
         music.stop_all_sounds()
         oak_cutscene()
+    elif on_game: 
+        for npc_entity in npc_list:
+            diff_x = abs(red.x - npc_entity.sprite.x)
+            diff_y = abs(red.y - npc_entity.sprite.y)
+            if diff_x < 20 and diff_y < 20:
+                npc_entity.talk()
+                break
+
 controller.A.on_event(ControllerButtonEvent.PRESSED, on_a_pressed)
 
 def on_b_pressed():

@@ -24,6 +24,11 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "red_static"
     },
+    "image6": {
+        "data": "hwQQABMAAAAAAAAA8P8AAAAAAAAAAADuj4gPAAAAAAAAAP/d7ojvAAAAAAAA/4jo3v7d7w4AAADwaIaI313l7u4AAADwhmb43e3uQe4PAACPiGjovd9OFOEPAABviIjY3d1OFOEAAABviIjf3d1OFOEAAACPiGjfvd9OFOEPAADwhmbY3e3uQe4PAADwb/b42F3l7u4AAAAA/4iI3v7d7w4AAAAAAP/d7ojvAAAAAAAAAADuj4gPAAAAAAAAAAAA8P8AAAAAAAA=",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "mom_front"
+    },
     "anim1": {
         "namespace": "myAnimations",
         "id": "anim1",
