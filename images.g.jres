@@ -29,6 +29,26 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "mom_front"
     },
+    "image7": {
+        "data": "hwQQABMAAAAA8P8AAAAAAAAAAAAA7+6vAAAAAAAAAAAA7+6n/wDwDwAAAAAA766n7g/f/QAAAADw/nfq7v4iRP8AAADw7qru7v5EInQPAADv7u7u7u4vInIPAADv7+7u7u4vIvIAAAD//u7u7u4vIvIAAADv7u7u7u4vInIPAADw7qru7v5EInQPAADw/nfq7v4iRP8AAAAA766n7g/f/QAAAAAA7+6n/wDwDwAAAAAA7+6vAAAAAAAAAAAA8P8AAAAAAAAAAAA=",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "flower_girl"
+    },
+    "image8": {
+        "data": "hwQQABAAAAAAAAAAAAAAAAAA/wAAAAAAAPDu/w8AAAAA7+7d/QD/APDu7t7d/90P8O7u3t+N3f3v7u7u3d2Y/+/u7t7d/Zn/7+7u7t79//jv7u7u3Z75iPDu7u7d/omI8O7u7u4Pj4gA7+7u/gDw/wDw7/4PAAAAAADwDwAAAAAAAAAAAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "kid1"
+    },
+    "image9": {
+        "data": "hwQQABAAAAAAAAAAAAAAAAAA8A8AAAAAAPDv/g8AAAAA7+7u/gDw//Du7u7uDy8i8O7u7t3+JCLv7u7u3U70Iu/u7u7e/f/y7+7u3t39RP/v7u7u3d1C//Du7t7fLd398O7u3t3/3Q8A7+7d/QD/AADw7v8PAAAAAAD/AAAAAAAAAAAAAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "kid0"
+    },
+    "image10": {
+        "data": "hwQQABMAAAAAACIAAAAAAAAAAAAAIEQPAAAAAAAAAAAAIkL0/wAAAAAAAAAgRCTk7g8AAAAAAAAgRETi7v78DwAAAABCRETk3v2M+AwAAABCRETk3s3///wAAABCQkTk7t7f3dwPAABCQkTk3d3f3dwPAABCRETk3d3M/NwPAAAgRETk/d2M+PwAAAAgRETk3f2ICAAAAAAAQkTi3Q8AAAAAAAAAICLu/wAAAAAAAAAAAAD/AAAAAAAAAAAAAAAAAAAAAAAAAAA=",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "kid2"
+    },
     "anim1": {
         "namespace": "myAnimations",
         "id": "anim1",

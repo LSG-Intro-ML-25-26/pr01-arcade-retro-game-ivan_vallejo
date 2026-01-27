@@ -60,6 +60,22 @@ function player_home_npc() {
     npc_list.push(mom)
 }
 
+function pallet_town_npc() {
+    clear_map()
+    let flower_girl = new NPC("Niña", assets.image`flower_girl`, 8, 14, ["Estas flores huelen muy bien y son muy bonitas!"])
+    npc_list.push(flower_girl)
+    let kid0 = new NPC("Niño", assets.image`kid0`, 6, 19, ["Estamos compitiendo a ver quien hacer rebotar más veces una piedra sobre el agua!"])
+    npc_list.push(kid0)
+    let kid1 = new NPC("Niño", assets.image`kid1`, 11, 19, ["He llegado a hacer que la piedra rebote 7 veces, voy ganando!!!"])
+    npc_list.push(kid1)
+    let kid2 = new NPC("Niño", assets.image`kid2`, 2, 10, ["Buenos días " + player_name + "!"])
+    npc_list.push(kid2)
+}
+
+function rival_house_npc() {
+    clear_map()
+}
+
 function start_screen() {
     
     on_start_screen = true
@@ -486,6 +502,7 @@ function player_room(x: number, y: number) {
     
     current_map = "player_room"
     tiles.setCurrentTilemap(tilemap`Red_House_F3`)
+    clear_map()
     tiles.placeOnTile(red, tiles.getTileLocation(x, y))
 }
 
@@ -493,6 +510,7 @@ function pallet_town(x: number, y: number) {
     
     current_map = "pallet_town"
     tiles.setCurrentTilemap(tilemap`Pallet_Town`)
+    pallet_town_npc()
     color.setColor(3, color.rgb(131, 213, 98))
     color.setColor(5, color.rgb(246, 238, 197))
     color.setColor(6, color.rgb(189, 255, 139))

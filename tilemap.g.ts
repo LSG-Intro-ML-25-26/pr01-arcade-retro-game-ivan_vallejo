@@ -501,29 +501,6 @@ namespace myTiles {
 2 . . . . . . . . . . . 2 
 2 2 2 2 2 2 . 2 2 2 2 2 2 
 `, [myTiles.transparency16,myTiles.tile87,myTiles.tile89,myTiles.tile91,myTiles.tile90,myTiles.tile21,myTiles.tile92,myTiles.tile93,myTiles.tile94,myTiles.tile95,myTiles.tile96,myTiles.tile97,myTiles.tile98,myTiles.tile99,myTiles.tile100,myTiles.tile101,myTiles.tile102,myTiles.tile103,myTiles.tile104,myTiles.tile105,myTiles.tile106,myTiles.tile88,myTiles.tile107,myTiles.tile108,myTiles.tile109,myTiles.tile110,myTiles.tile111,myTiles.tile112,myTiles.tile113,myTiles.tile114,myTiles.tile115,myTiles.tile116,myTiles.tile117,myTiles.tile118,myTiles.tile119,myTiles.tile120,myTiles.tile121,myTiles.tile122,myTiles.tile123,myTiles.tile124,myTiles.tile125,myTiles.tile126,myTiles.tile127,myTiles.tile128,myTiles.tile129,myTiles.tile130,myTiles.tile131,myTiles.tile132,myTiles.tile133], TileScale.Sixteen);
-            case "Pallet_Town":
-            case "Pallet_Town1":return tiles.createTilemap(hex`180014000504050405040504050405040c1c0504050405040504050406070f100f100f100f100f10011b0f100f100f100f10060705040c0d0d0d0d0d0d0d0d0d02030d0d0d0d0d0d0d0e05040607011d1d5d5c5c5c5b1d1d1d1d5d5c5c5c5b1d1d0806070504011f2a5859595957221d1f2a5859595957221d08050406070108145455555556211d08145455555556211d08060705040108494f50515253211d08494f50515253211d08050406070108484a4b4c4d4e211d08484a5a4c4d4e211d0806070504011e2b201d1e2b2b201d1e0d201d1e2b2b201d0805040607011d1d1d1d1d1d1d1d1d1d444545454546471d0806070504011d1d1d1d1d1d1d1d1d1f3e3f3f3f3f42432d0805040607011d1f2424242423221d083c3d3d3d3d40412c0806070504011d082525252513211d083638393231302f2c0805040607011d082525252514211d08373a3b3335342e2c0806070504011d082613141313211d1e2b2b201d1e2b2b020805040607011d1e0d0d0d0d0d201d1f2a2a2a2a2a2a221d0806070504011d1d1d1d1d1d1d1d1d29272727232727281d08050406070b090909091a1919181d1d1d1d1d1d1d1d1d1d0806070504131314131417161615090909090909090909090a0504060711121112141716161513141314131413111211120607`, img`
-222222222222..2222222222
-22....................22
-22....................22
-22....................22
-22...22222....22222...22
-22...22222....22222...22
-22..222222...222222...22
-22..22.222...22.222...22
-22....................22
-22....................22
-22...........2222222..22
-22...22222...2222222..22
-22...........2222222..22
-22...........222.222..22
-22...2................22
-22....................22
-22...........222222...22
-22.....2222...........22
-22.....2222...........22
-222222.2222.......222222
-`, [myTiles.transparency16,myTiles.tile142,myTiles.tile159,myTiles.tile158,myTiles.tile136,myTiles.tile137,myTiles.tile135,myTiles.tile134,myTiles.tile139,myTiles.tile140,myTiles.tile138,myTiles.tile141,myTiles.tile143,myTiles.tile144,myTiles.tile145,myTiles.tile146,myTiles.tile147,myTiles.tile148,myTiles.tile149,myTiles.tile150,myTiles.tile151,myTiles.tile152,myTiles.tile153,myTiles.tile154,myTiles.tile155,myTiles.tile156,myTiles.tile157,myTiles.tile160,myTiles.tile161,myTiles.tile162,myTiles.tile163,myTiles.tile164,myTiles.tile165,myTiles.tile166,myTiles.tile167,myTiles.tile168,myTiles.tile169,myTiles.tile170,myTiles.tile171,myTiles.tile172,myTiles.tile173,myTiles.tile174,myTiles.tile175,myTiles.tile176,myTiles.tile177,myTiles.tile178,myTiles.tile179,myTiles.tile180,myTiles.tile181,myTiles.tile182,myTiles.tile183,myTiles.tile184,myTiles.tile185,myTiles.tile186,myTiles.tile187,myTiles.tile188,myTiles.tile189,myTiles.tile190,myTiles.tile191,myTiles.tile192,myTiles.tile193,myTiles.tile194,myTiles.tile195,myTiles.tile196,myTiles.tile197,myTiles.tile198,myTiles.tile199,myTiles.tile200,myTiles.tile201,myTiles.tile202,myTiles.tile203,myTiles.tile204,myTiles.tile205,myTiles.tile206,myTiles.tile207,myTiles.tile208,myTiles.tile209,myTiles.tile210,myTiles.tile211,myTiles.tile212,myTiles.tile213,myTiles.tile214,myTiles.tile215,myTiles.tile216,myTiles.tile217,myTiles.tile218,myTiles.tile219,myTiles.tile220,myTiles.tile221,myTiles.tile225,myTiles.tile227,myTiles.tile228,myTiles.tile229,myTiles.tile230], TileScale.Sixteen);
             case "Red_House_F0":
             case "Red_House_F1":return tiles.createTilemap(hex`0d000a00151d1d22231d272a2b1d1d1d1d151b1c2021242628292424323315191a1e1f01250101012d3031150101010d0c0c0c0c0b2c2f2e150101010e0f1314100a010101150101010e0f1112100a01010115030101070808080809010103150201010101010101010101021501010405060101010101010115151517161815151515151515`, img`
 2 2 2 2 2 2 2 2 2 2 2 2 2 
@@ -537,6 +514,29 @@ namespace myTiles {
 2 . . . . . . . . . . . . 
 2 2 2 2 . 2 2 2 2 2 2 2 2 
 `, [myTiles.transparency16,myTiles.tile1,myTiles.tile2,myTiles.tile3,myTiles.tile4,myTiles.tile5,myTiles.tile6,myTiles.tile7,myTiles.tile8,myTiles.tile9,myTiles.tile10,myTiles.tile11,myTiles.tile12,myTiles.tile13,myTiles.tile14,myTiles.tile15,myTiles.tile16,myTiles.tile17,myTiles.tile18,myTiles.tile19,myTiles.tile20,myTiles.tile21,myTiles.tile23,myTiles.tile22,myTiles.tile24,myTiles.tile25,myTiles.tile26,myTiles.tile27,myTiles.tile28,myTiles.tile29,myTiles.tile30,myTiles.tile31,myTiles.tile32,myTiles.tile33,myTiles.tile34,myTiles.tile35,myTiles.tile36,myTiles.tile37,myTiles.tile38,myTiles.tile39,myTiles.tile40,myTiles.tile41,myTiles.tile42,myTiles.tile43,myTiles.tile44,myTiles.tile45,myTiles.tile47,myTiles.tile46,myTiles.tile48,myTiles.tile49,myTiles.tile50,myTiles.tile51], TileScale.Sixteen);
+            case "Pallet_Town":
+            case "Pallet_Town1":return tiles.createTilemap(hex`180014000504050405040504050405040c1c0504050405040504050406070f100f100f100f100f10011b0f100f100f100f10060705040c0d0d0d0d0d0d0d0d0d02030d0d0d0d0d0d0d0e05040607011d1d5d5c5c5c5b1d1d1d1d5d5c5c5c5b1d1d0806070504011f2a5859595957221d1f2a5859595957221d08050406070108145455555556211d08145455555556211d08060705040108494f50515253211d08494f50515253211d08050406070108484a4b4c4d4e211d08484a5a4c4d4e211d0806070504011e2b201d1e2b2b201d1e0d201d1e2b2b201d0805040607011d1d1d1d1d1d1d1d1d1d444545454546471d0806070504011d1d1d1d1d1d1d1d1d1f3e3f3f3f3f42432d0805040607011d1f2424242423221d083c3d3d3d3d40412c0806070504011d082525252513211d083638393231302f2c0805040607011d082525252514211d08373a3b3335342e2c0806070504011d082613141313211d1e2b2b201d1e2b2b020805040607011d1e0d0d0d0d0d201d1f2a2a2a2a2a2a221d0806070504011d1d1d1d1d1d1d1d1d29272727232727281d08050406070b090909091a1919181d1d1d1d1d1d1d1d1d1d0806070504131314131417161615090909090909090909090a0504060711121112141716161513141314131413111211120607`, img`
+222222222222..2222222222
+22....................22
+22....................22
+22....................22
+22...22222....22222...22
+22...22222....22222...22
+22..222222...222222...22
+22..22.222...22.222...22
+22....................22
+22....................22
+222..........2222222..22
+22...22222...2222222..22
+22...........2222222..22
+22...........222.222..22
+22...2..2.............22
+22....................22
+22...........222222...22
+22.....2222...........22
+22.....2222...........22
+222222222222......222222
+`, [myTiles.transparency16,myTiles.tile142,myTiles.tile159,myTiles.tile158,myTiles.tile136,myTiles.tile137,myTiles.tile135,myTiles.tile134,myTiles.tile139,myTiles.tile140,myTiles.tile138,myTiles.tile141,myTiles.tile143,myTiles.tile144,myTiles.tile145,myTiles.tile146,myTiles.tile147,myTiles.tile148,myTiles.tile149,myTiles.tile150,myTiles.tile151,myTiles.tile152,myTiles.tile153,myTiles.tile154,myTiles.tile155,myTiles.tile156,myTiles.tile157,myTiles.tile160,myTiles.tile161,myTiles.tile162,myTiles.tile163,myTiles.tile164,myTiles.tile165,myTiles.tile166,myTiles.tile167,myTiles.tile168,myTiles.tile169,myTiles.tile170,myTiles.tile171,myTiles.tile172,myTiles.tile173,myTiles.tile174,myTiles.tile175,myTiles.tile176,myTiles.tile177,myTiles.tile178,myTiles.tile179,myTiles.tile180,myTiles.tile181,myTiles.tile182,myTiles.tile183,myTiles.tile184,myTiles.tile185,myTiles.tile186,myTiles.tile187,myTiles.tile188,myTiles.tile189,myTiles.tile190,myTiles.tile191,myTiles.tile192,myTiles.tile193,myTiles.tile194,myTiles.tile195,myTiles.tile196,myTiles.tile197,myTiles.tile198,myTiles.tile199,myTiles.tile200,myTiles.tile201,myTiles.tile202,myTiles.tile203,myTiles.tile204,myTiles.tile205,myTiles.tile206,myTiles.tile207,myTiles.tile208,myTiles.tile209,myTiles.tile210,myTiles.tile211,myTiles.tile212,myTiles.tile213,myTiles.tile214,myTiles.tile215,myTiles.tile216,myTiles.tile217,myTiles.tile218,myTiles.tile219,myTiles.tile220,myTiles.tile221,myTiles.tile225,myTiles.tile227,myTiles.tile228,myTiles.tile229,myTiles.tile230], TileScale.Sixteen);
         }
         return null;
     })

@@ -140,6 +140,88 @@ f88f5edddde5f88f
 ....eeeeeeee....
 .....ff..ff.....
 `;
+            case "image7":
+            case "flower_girl":return img`
+......ffff......
+....ffeefeff....
+.fffeeefeeeefff.
+feeefeeefeefeeef
+feee7aeeeea7eeef
+feea7aeeeea7aeef
+.f77aeeeeeea77f.
+.aaaeeeeeeeeaaa.
+..feeeeeeeeeef..
+..feeeeeeeeeef..
+...feeeeeeeef...
+....ffeeeeff....
+...f24ffff42f...
+..fd24222242df..
+..fd42222224df..
+...f42222224f...
+....f422224f....
+....f77ff77f....
+.....ff..ff.....
+`;
+            case "image8":
+            case "kid1":return img`
+. . . . . . f f f f . . . . . . 
+. . . . f f e e e e f f . . . . 
+. . . f e e e e e e e e f . . . 
+. . f e e e e e e e e e e f . . 
+. f e e e e e e e e e e e f . . 
+. f e e e e e e e e e e e e f . 
+. . f d e e e e e e e e e e f . 
+. . f d d d e d e e e e e f . . 
+. . f d d f d d e d d e e f . . 
+. . . f d d d d d d d e f . . . 
+. . . . f d d d d e e f . . . . 
+. . . . f 8 d f f 9 f . . . . . 
+. . . f d d 8 9 f 9 9 f . . . . 
+. . . f d d 9 9 f f 8 8 f . . . 
+. . . . f d f f 8 8 8 8 f . . . 
+. . . . . f f f f 8 8 8 f . . . 
+`;
+            case "image9":
+            case "kid0":return img`
+. . . . . . f f f f . . . . . . 
+. . . . f f e e e e f f . . . . 
+. . . f e e e e e e e e f . . . 
+. . f e e e e e e e e e e f . . 
+. . f e e e e e e e e e e e f . 
+. f e e e e e e e e e e e e f . 
+. f e e e e e e e e e e d f . . 
+. . f e e e e e d e d d d f . . 
+. . f e e d d e d d f d d f . . 
+. . . f e d d d d d d d f . . . 
+. . . . f e e d d d d f . . . . 
+. . . . . f 4 f f d 2 f . . . . 
+. . . . f 4 4 f 4 2 d d f . . . 
+. . . f 2 2 f f 4 4 d d f . . . 
+. . . f 2 2 2 2 f f d f . . . . 
+. . . f 2 2 2 f f f f . . . . . 
+`;
+            case "image10":
+            case "kid2":return img`
+.....22222......
+...224444422....
+..24444224442...
+.2244444444442..
+24244444444442..
+24424444444442..
+.f44244444442ef.
+..feeeeeeeeeeef.
+..feeeeedddddf..
+..feeddeddfddf..
+...feddeddddf...
+....ffcddddf....
+....ccfffcc8....
+....f8fddc88....
+....f8fddc88....
+.....ffddff.....
+.....cccccc.....
+......fdddf.....
+.......fff......
+`;
         }
         return null;
     })

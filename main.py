@@ -49,6 +49,20 @@ def player_home_npc():
     mom = NPC("Mamá", assets.image("""mom_front"""), 7, 6, ["Buenos días " + player_name + "!", "Hoy por fin vas a ser un entrenador Pokemon!", "El profesor Oak me ha dicho que vayas a su laboratorio para darte tu primer Pokémon!"])
     npc_list.append(mom)
 
+def pallet_town_npc():
+    clear_map()
+    flower_girl = NPC("Niña", assets.image("""flower_girl"""), 8, 14, ["Estas flores huelen muy bien y son muy bonitas!"])
+    npc_list.append(flower_girl)
+    kid0 = NPC("Niño", assets.image("""kid0"""), 6, 19, ["Estamos compitiendo a ver quien hacer rebotar más veces una piedra sobre el agua!"])
+    npc_list.append(kid0)
+    kid1 = NPC("Niño", assets.image("""kid1"""), 11, 19, ["He llegado a hacer que la piedra rebote 7 veces, voy ganando!!!"])
+    npc_list.append(kid1)
+    kid2 = NPC("Niño", assets.image("""kid2"""), 2, 10, ["Buenos días " + player_name + "!"])
+    npc_list.append(kid2)
+
+def rival_house_npc():
+    clear_map()
+
 def start_screen():
     global on_start_screen
     on_start_screen = True
@@ -472,12 +486,14 @@ def player_room(x, y):
     global red, current_map
     current_map = "player_room"
     tiles.set_current_tilemap(tilemap("""Red_House_F3"""))
+    clear_map()
     tiles.place_on_tile(red, tiles.get_tile_location(x, y))
 
 def pallet_town(x,y):
     global red, current_map
     current_map = "pallet_town"
     tiles.set_current_tilemap(tilemap("""Pallet_Town"""))
+    pallet_town_npc()
     color.set_color(3, color.rgb(131, 213, 98))
     color.set_color(5, color.rgb(246, 238, 197))
     color.set_color(6, color.rgb(189, 255, 139))
