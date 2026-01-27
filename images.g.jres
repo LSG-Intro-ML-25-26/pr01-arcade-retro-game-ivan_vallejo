@@ -54,6 +54,21 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "rival_mom"
     },
+    "image12": {
+        "data": "hwQQABMAAAAAAAAPAAAAAAAAAAAA8PD+AAD/AAAAAAAA7+/+8PAzDwAAAAAA7+7+7j8z//8AAAAA7+7uPvP/r38PAADw7u7uMzP/f3oPAADw7u7u8zP/9/oAAADv7u4+MzPu9woAAADv7u7uPjPu9woAAADw7u7u8zP/9/oAAADw7u4+MzP/f3oPAAAA7+7uM/P/r38PAAAA8O7uPj8z//8AAAAAAO/u/vAzDwAAAAAA8P//DwD/AAAAAAAAAAAAAAAAAAAAAAA=",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "rival"
+    },
+    "image13": {
+        "data": "hwQQABMAAAAAAAAAAAAAAAAAAAAAD/APAPDvAAAAAADw/j/zAM8zDgAAAADv7u4+/xEx/v8AAADv7jPuMx8cEY4PAADv7jPjM+MREYEPAADv7jMzP/MREfEAAADv7u4zM/NE8g8AAADw7j4zM/NE8g8AAADw7jMzP/MREfEAAADw7jPjM+MREYEPAADw7jPuMx8cEY4PAADw7u4+/xEx/v8AAAAA/z/zAM8zDgAAAAAAAPAPAPDvAAAAAAAAAAAAAAAAAAAAAAA=",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "oak"
+    },
+    "image14": {
+        "data": "hwQQABMAAAAAAAAAAAAAAAAAAAAAAPAPAPD/AAAAAAAA8D/zAB8zDwAAAAAA7+7u/xER//8AAADw7u7zMx8fEY8PAADw7j4fP//xEYEPAADv7j4fP/MRH/EAAADv7j7zM/NEH/EAAADv7j7zM/NEH/EAAADv7jMfP/MRH/EAAADw7jMfP//xEYEPAADw7j7zMx8fEY8PAAAA7+7u/xER//8AAAAA8D/zAB8zDwAAAAAAAPAPAPD/AAAAAAAAAAAAAAAAAAAAAAA=",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "lab_npc"
+    },
     "anim1": {
         "namespace": "myAnimations",
         "id": "anim1",

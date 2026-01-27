@@ -8,7 +8,9 @@ let current_map = ""
 let player_name = ""
 let KindNPC = SpriteKind.create()
 let npc_list : NPC[] = []
+let oak_event = false
 // Comando cambiar color:
+// color.set_color(3, color.rgb(255, 213, 180))
 // color.set_color(3, color.rgb(131, 213, 98))
 // color.set_color(5, color.rgb(246, 238, 197))
 // color.set_color(6, color.rgb(189, 255, 139))
@@ -76,6 +78,26 @@ function rival_house_npc() {
     clear_map()
     let rival_mom = new NPC("Madre de azul", assets.image`rival_mom`, 4, 5, ["Hola " + player_name + ", si buscas a Azul, te está esperando en el laboratorio del profesor Oak para que recojáis vuestro primer pokémon!"])
     npc_list.push(rival_mom)
+}
+
+function laboratory_npc() {
+    let prof_oak: NPC;
+    let azul2: NPC;
+    let azul: NPC;
+    clear_map()
+    let lab_npc = new NPC("Científico", assets.image`lab_npc`, 3, 3, ["Sabías que si un pokémon usa un movimiento de su mismo tipo, este verá aumentada su potencia en un 50%?"])
+    npc_list.push(lab_npc)
+    if (oak_event) {
+        prof_oak = new NPC("Profesor Oak", assets.image`oak`, 5, 4, ["Pues ya estamos todos, podéis escoger a vuestro inicial! Escoger con cuidado, ya que este pokémon será el que os acompañe para el resto de vuestra aventura. Adelante " + player_name + ", haz tú los honores y escoge primero!"])
+        tiles.setWallAt(tiles.getTileLocation(5, 4), true)
+        npc_list.push(prof_oak)
+        azul2 = new NPC("Azul", assets.image`rival`, 7, 4, ["Que sepas que yo seré el mejor entrenador de Kanto, no podrás hacer nada contra mi!"])
+        npc_list.push(azul2)
+    } else {
+        azul = new NPC("Azul", assets.image`rival`, 7, 4, ["Se puede saber donde se habrá metido ese viejo? Quiero mi pokémon ya!", "Oye " + player_name + ", podrías salir a buscarlo por favor?"])
+        npc_list.push(azul)
+    }
+    
 }
 
 function start_screen() {
@@ -554,7 +576,8 @@ function laboratory(x: number, y: number) {
     
     current_map = "laboratory"
     tiles.setCurrentTilemap(tilemap`Laboratory`)
-    color.setColor(3, color.rgb(255, 147, 196))
+    laboratory_npc()
+    color.setColor(3, color.rgb(255, 213, 180))
     color.setColor(5, color.rgb(255, 246, 9))
     color.setColor(6, color.rgb(36, 156, 163))
     color.setColor(7, color.rgb(120, 220, 82))
