@@ -668,9 +668,9 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`rivaldoor`, function enter_ri
 scene.onOverlapTile(SpriteKind.Player, assets.tile`entry_bottom_centre`, function exit_house(sprite: Sprite, location: tiles.Location) {
     
     if (current_map == "player_house") {
-        pallet_town(6, 9)
+        pallet_town(6, 8)
     } else if (current_map == "rival_house") {
-        pallet_town(15, 9)
+        pallet_town(15, 8)
     }
     
 })

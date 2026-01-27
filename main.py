@@ -640,9 +640,9 @@ scene.on_overlap_tile(SpriteKind.player, assets.tile("""rivaldoor"""), enter_riv
 def exit_house(sprite, location):
     global current_map
     if current_map == "player_house":
-        pallet_town(6, 9)
+        pallet_town(6, 8)
     elif current_map == "rival_house":
-        pallet_town(15, 9)
+        pallet_town(15, 8)
 
 scene.on_overlap_tile(SpriteKind.player, assets.tile("""entry_bottom_centre"""), exit_house)
 
