@@ -74,6 +74,8 @@ function pallet_town_npc() {
 
 function rival_house_npc() {
     clear_map()
+    let rival_mom = new NPC("Madre de azul", assets.image`rival_mom`, 4, 5, ["Hola " + player_name + ", si buscas a Azul, te está esperando en el laboratorio del profesor Oak para que recojáis vuestro primer pokémon!"])
+    npc_list.push(rival_mom)
 }
 
 function start_screen() {
@@ -538,6 +540,7 @@ function rival_house(x: number, y: number) {
     
     current_map = "rival_house"
     tiles.setCurrentTilemap(tilemap`Rival_House`)
+    rival_house_npc()
     color.setColor(3, color.rgb(255, 147, 196))
     color.setColor(5, color.rgb(255, 246, 9))
     color.setColor(6, color.rgb(36, 156, 163))

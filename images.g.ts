@@ -222,6 +222,28 @@ feea7aeeeea7aeef
 ......fdddf.....
 .......fff......
 `;
+            case "image11":
+            case "rival_mom":return img`
+......ffff......
+....ffeeeeff....
+...feeeeeeeef...
+..feeeeeeeeeef..
+..feee8888eeef..
+.feee899998eeef.
+.feee988889eeef.
+.feeededdedeeef.
+.feeeddddddeeef.
+.feeddfddfddeef.
+.feeddeddeddeef.
+..fefeddddefef..
+..fed8ffff8def..
+..fdd888888ddf..
+.fdd99888899ddf.
+.ff8899999988ff.
+...f88999988f...
+....f888888f....
+.....ff..ff.....
+`;
         }
         return null;
     })

@@ -49,6 +49,11 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "kid2"
     },
+    "image11": {
+        "data": "hwQQABMAAAAAAAAAAAAAAAAAAAAAAPD//w8A/wAAAAAA8O/u7v7//QAAAAAA7+7u7u7ejQ8AAADw7u7u3v3difgAAADw7o7Z3e2ImYgPAADv7pjo/d6PmIkPAADv7pjY3d2PmIkAAADv7pjY3d2PmIkAAADv7pjo/d6PmIkPAADw7o7Z3e2ImYgPAADw7u7u3v3difgAAAAA7+7u7u7ejQ8AAAAA8O/u7v7//QAAAAAAAPD//w8A/wAAAAAAAAAAAAAAAAAAAAA=",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "rival_mom"
+    },
     "anim1": {
         "namespace": "myAnimations",
         "id": "anim1",

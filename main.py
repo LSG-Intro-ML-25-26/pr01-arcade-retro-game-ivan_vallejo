@@ -62,6 +62,8 @@ def pallet_town_npc():
 
 def rival_house_npc():
     clear_map()
+    rival_mom = NPC("Madre de azul", assets.image("""rival_mom"""), 4, 5, ["Hola " + player_name + ", si buscas a Azul, te está esperando en el laboratorio del profesor Oak para que recojáis vuestro primer pokémon!"])
+    npc_list.append(rival_mom)
 
 def start_screen():
     global on_start_screen
@@ -519,6 +521,7 @@ def rival_house(x, y):
     global red, current_map
     current_map = "rival_house"
     tiles.set_current_tilemap(tilemap("""Rival_House"""))
+    rival_house_npc()
     color.set_color(3, color.rgb(255, 147, 196))
     color.set_color(5, color.rgb(255, 246, 9))
     color.set_color(6, color.rgb(36, 156, 163))
