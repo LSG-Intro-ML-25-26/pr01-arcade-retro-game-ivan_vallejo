@@ -536,6 +536,7 @@ function pallet_town(x: number, y: number) {
     current_map = "pallet_town"
     tiles.setCurrentTilemap(tilemap`Pallet_Town`)
     pallet_town_npc()
+    color.setColor(0, color.rgb(255, 213, 180))
     color.setColor(3, color.rgb(131, 213, 98))
     color.setColor(5, color.rgb(246, 238, 197))
     color.setColor(6, color.rgb(189, 255, 139))
@@ -717,7 +718,7 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`lab_entry_bottom_center`, fun
 })
 function exit_pallet_town(sprite: Sprite, location: tiles.Location) {
     
-    if (red.y > 0) {
+    if (red.y > 20) {
         return
     }
     
@@ -726,10 +727,29 @@ function exit_pallet_town(sprite: Sprite, location: tiles.Location) {
             controller.moveSprite(red, 0, 0)
             red.setVelocity(0, 0)
             red.y += 16
-            pause(200)
-            game.showLongText("Espera! No salgas todavía!", DialogLayout.Bottom)
+            control.runInParallel(function escena_oak() {
+                let oak: Sprite;
+                
+                oak = sprites.create(assets.image`oak2`, KindNPC)
+                oak.setFlag(SpriteFlag.Ghost, true)
+                oak.z = 100
+                oak.x = red.x
+                oak.y = 140
+                while (oak.y > 48) {
+                    oak.y -= 2
+                    pause(50)
+                }
+                game.showLongText("Oak: ¡Espera! ¡No salgas todavía!", DialogLayout.Bottom)
+                game.showLongText("¡Ven a mi laboratorio!", DialogLayout.Bottom)
+                while (oak.y < 200) {
+                    oak.y += 2
+                    pause(50)
+                }
+                oak.destroy()
+                oak_event = true
+                controller.moveSprite(red)
+            })
             oak_event = true
-            controller.moveSprite(red)
         } else if (!has_pokemon) {
             controller.moveSprite(red, 0, 0)
             red.setVelocity(0, 0)

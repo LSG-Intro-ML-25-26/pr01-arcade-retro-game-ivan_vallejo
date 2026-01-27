@@ -69,6 +69,11 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "lab_npc"
     },
+    "image15": {
+        "data": "hwQQABMAAAAAAAAAAAAAAAAAAAAAD/APAPDvAAAAAADw/t/9AM/dDgAAAADv7u7e/xHR/v8AAADv7t3u3R8cEY4PAADv7t3t3e0REYEPAADv7t3d3/0REfEAAADv7u7d3f1E8g8AAADw7t7d3f1E8g8AAADw7t3d3/0REfEAAADw7t3t3e0REYEPAADw7t3u3R8cEY4PAADw7u7e/xHR/v8AAAAA/9/9AM/dDgAAAAAAAPAPAPDvAAAAAAAAAAAAAAAAAAAAAAA=",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "oak2"
+    },
     "anim1": {
         "namespace": "myAnimations",
         "id": "anim1",

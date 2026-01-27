@@ -513,6 +513,7 @@ def pallet_town(x,y):
     current_map = "pallet_town"
     tiles.set_current_tilemap(tilemap("""Pallet_Town"""))
     pallet_town_npc()
+    color.set_color(0, color.rgb(255, 213, 180))
     color.set_color(3, color.rgb(131, 213, 98))
     color.set_color(5, color.rgb(246, 238, 197))
     color.set_color(6, color.rgb(189, 255, 139))
@@ -681,6 +682,29 @@ def exit_lab(sprite, location):
 
 scene.on_overlap_tile(SpriteKind.player, assets.tile("""lab_entry_bottom_center"""), exit_lab)
 
+def escena_oak():
+    global oak_event
+    oak = sprites.create(assets.image("""oak2"""), KindNPC)
+    oak.set_flag(SpriteFlag.GHOST, True)
+    oak.z = 100
+    oak.x = red.x
+    oak.y = 140
+    
+    while oak.y > 48:
+        oak.y -= 2
+        pause(50)
+    
+    game.show_long_text("Oak: ¡Espera! ¡No salgas todavía!", DialogLayout.BOTTOM)
+    game.show_long_text("¡Ven a mi laboratorio!", DialogLayout.BOTTOM)
+    
+    while oak.y < 200:
+        oak.y += 2
+        pause(50)
+    
+    oak.destroy()
+    oak_event = True
+    controller.move_sprite(red)
+
 def exit_pallet_town(sprite, location):
     global oak_event
     if red.y > 20:
@@ -690,10 +714,8 @@ def exit_pallet_town(sprite, location):
             controller.move_sprite(red, 0, 0)
             red.set_velocity(0, 0)
             red.y += 16
-            pause(200)
-            game.show_long_text("Espera! No salgas todavía!", DialogLayout.BOTTOM)
+            control.run_in_parallel(escena_oak)
             oak_event = True
-            controller.move_sprite(red)
         elif not has_pokemon:
             controller.move_sprite(red, 0, 0)
             red.set_velocity(0, 0)
