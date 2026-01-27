@@ -9,6 +9,7 @@ let player_name = ""
 let KindNPC = SpriteKind.create()
 let npc_list : NPC[] = []
 let oak_event = false
+let has_pokemon = false
 // Comando cambiar color:
 // color.set_color(3, color.rgb(255, 213, 180))
 // color.set_color(3, color.rgb(131, 213, 98))
@@ -714,6 +715,36 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`lab_entry_bottom_center`, fun
     }
     
 })
+function exit_pallet_town(sprite: Sprite, location: tiles.Location) {
+    
+    if (red.y > 0) {
+        return
+    }
+    
+    if (current_map == "pallet_town") {
+        if (!oak_event) {
+            controller.moveSprite(red, 0, 0)
+            red.setVelocity(0, 0)
+            red.y += 16
+            pause(200)
+            game.showLongText("Espera! No salgas todavía!", DialogLayout.Bottom)
+            oak_event = true
+            controller.moveSprite(red)
+        } else if (!has_pokemon) {
+            controller.moveSprite(red, 0, 0)
+            red.setVelocity(0, 0)
+            red.y += 16
+            pause(200)
+            game.showLongText("Tienes que ir al laboratorio del profesor Oak!", DialogLayout.Bottom)
+            controller.moveSprite(red)
+        }
+        
+    }
+    
+}
+
+scene.onOverlapTile(SpriteKind.Player, assets.tile`exit_left`, exit_pallet_town)
+scene.onOverlapTile(SpriteKind.Player, assets.tile`exit_right`, exit_pallet_town)
 game.onUpdate(function on_on_update() {
     if (on_game) {
         if (red.vx == 0 && red.vy == 0) {

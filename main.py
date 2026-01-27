@@ -9,6 +9,7 @@ player_name = ""
 KindNPC = SpriteKind.create()
 npc_list: List[NPC] = []
 oak_event = False
+has_pokemon = False
 #Comando cambiar color:
 #color.set_color(3, color.rgb(255, 213, 180))
 #color.set_color(3, color.rgb(131, 213, 98))
@@ -679,6 +680,30 @@ def exit_lab(sprite, location):
         pallet_town(16, 14)
 
 scene.on_overlap_tile(SpriteKind.player, assets.tile("""lab_entry_bottom_center"""), exit_lab)
+
+def exit_pallet_town(sprite, location):
+    global oak_event
+    if red.y > 20:
+        return
+    if current_map == "pallet_town":
+        if not oak_event:
+            controller.move_sprite(red, 0, 0)
+            red.set_velocity(0, 0)
+            red.y += 16
+            pause(200)
+            game.show_long_text("Espera! No salgas todavía!", DialogLayout.BOTTOM)
+            oak_event = True
+            controller.move_sprite(red)
+        elif not has_pokemon:
+            controller.move_sprite(red, 0, 0)
+            red.set_velocity(0, 0)
+            red.y += 16
+            pause(200)
+            game.show_long_text("Tienes que ir al laboratorio del profesor Oak!", DialogLayout.BOTTOM)
+            controller.move_sprite(red)
+
+scene.on_overlap_tile(SpriteKind.player, assets.tile("""exit_left"""), exit_pallet_town)
+scene.on_overlap_tile(SpriteKind.player, assets.tile("""exit_right"""), exit_pallet_town)
 
 game.on_update(on_on_update)
 start_screen()
