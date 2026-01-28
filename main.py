@@ -76,10 +76,18 @@ def laboratory_npc():
         prof_oak = NPC("Profesor Oak", assets.image("""oak"""), 5, 4, ["Pues ya estamos todos, podéis escoger a vuestro inicial! Escoger con cuidado, ya que este pokémon será el que os acompañe para el resto de vuestra aventura. Adelante " + player_name + ", haz tú los honores y escoge primero!"])
         tiles.set_wall_at(tiles.get_tile_location(5, 4), True)
         npc_list.append(prof_oak)
-        azul2 = NPC ("Azul", assets.image("""rival"""), 7, 4, ["Que sepas que yo seré el mejor entrenador de Kanto, no podrás hacer nada contra mi!"])
+        azul2 = NPC ("Azul", assets.image("""rival"""), 7, 3, ["Que sepas que yo seré el mejor entrenador de Kanto, no podrás hacer nada contra mi!"])
         npc_list.append(azul2)
+        ball_bulbasaur = NPC("Bulbasaur", assets.image("""pokeball"""), 8, 4, ["El Pokémon inicial de tipo planta. ¿Quieres quedarte con Bulbasaur?"])
+        npc_list.append(ball_bulbasaur)
+        
+        ball_charmander = NPC("Charmander", assets.image("""pokeball"""), 10, 4, ["El Pokémon inicial de tipo fuego. ¿Quieres quedarte con Charmander?"])
+        npc_list.append(ball_charmander)
+        
+        ball_squirtle = NPC("Squirtle", assets.image("""pokeball"""), 12, 4, ["El Pokémon inicial de tipo agua. ¿Quieres quedarte con Squirtle?"])
+        npc_list.append(ball_squirtle)
     else:
-        azul = NPC ("Azul", assets.image("""rival"""), 7, 4, ["Se puede saber donde se habrá metido ese viejo? Quiero mi pokémon ya!", "Oye " + player_name + ", podrías salir a buscarlo por favor?"])
+        azul = NPC ("Azul", assets.image("""rival"""), 7, 3, ["Se puede saber donde se habrá metido ese viejo? Quiero mi pokémon ya!", "Oye " + player_name + ", podrías salir a buscarlo por favor?"])
         npc_list.append(azul)
 
 def start_screen():
@@ -573,6 +581,17 @@ def top_text_sprite():
     text_sprite_oak.set_outline(1, 15)
     text_sprite_oak.set_position(60, 5)
 
+def confirm_choice(pokemon_npc: NPC):
+    global has_pokemon
+    if game.ask("¿Elegir a " + pokemon_npc.name + "?"):
+        has_pokemon = True
+        
+        music.play(music.melody_playable(music.ba_ding), music.PlaybackMode.IN_BACKGROUND)
+        game.show_long_text("¡Has conseguido a " + pokemon_npc.name + "!", DialogLayout.BOTTOM)
+        
+        pokemon_npc.destroy()
+        npc_list.remove_element(pokemon_npc)
+
 def on_a_pressed():
     global on_start_screen
     if on_start_screen == True:
@@ -584,8 +603,11 @@ def on_a_pressed():
         for npc_entity in npc_list:
             diff_x = abs(red.x - npc_entity.sprite.x)
             diff_y = abs(red.y - npc_entity.sprite.y)
+            
             if diff_x < 20 and diff_y < 20:
                 npc_entity.talk()
+                if npc_entity.name == "Bulbasaur" or npc_entity.name == "Charmander" or npc_entity.name == "Squirtle":
+                    confirm_choice(npc_entity)
                 break
 
 controller.A.on_event(ControllerButtonEvent.PRESSED, on_a_pressed)
@@ -685,7 +707,6 @@ scene.on_overlap_tile(SpriteKind.player, assets.tile("""lab_entry_bottom_center"
 def oak_scene():
     global oak_event
     oak = sprites.create(assets.image("""oakup_static"""), KindNPC)
-    game.show_long_text("¡Espera! ¡No salgas todavía!", DialogLayout.BOTTOM)
     oak.set_flag(SpriteFlag.GHOST, True)
     oak.z = 100
     oak.x = 184
@@ -700,7 +721,8 @@ def oak_scene():
     
     game.show_long_text("¡¿A donde te piensas que vas sin pokémon?! Había ido a buscar a vuestros iniciales, venga, ven al laboratorio, te estaré esperando.", DialogLayout.BOTTOM)
     
-    while oak.y < 200:
+    animation.run_image_animation(oak, assets.animation("""oakdown"""), 200, True)
+    while oak.y < 144:
         oak.y += 2
         pause(50)
     
@@ -716,15 +738,16 @@ def exit_pallet_town(sprite, location):
         if not oak_event:
             controller.move_sprite(red, 0, 0)
             red.set_velocity(0, 0)
-            red.y += 16
+            game.show_long_text("¡Espera! ¡No salgas todavía!", DialogLayout.BOTTOM)
+            red.y += 8
             control.run_in_parallel(oak_scene)
             oak_event = True
         elif not has_pokemon:
             controller.move_sprite(red, 0, 0)
             red.set_velocity(0, 0)
-            red.y += 16
-            pause(200)
             game.show_long_text("Tienes que ir al laboratorio del profesor Oak!", DialogLayout.BOTTOM)
+            red.y += 8
+            pause(200)
             controller.move_sprite(red)
 
 scene.on_overlap_tile(SpriteKind.player, assets.tile("""exit_left"""), exit_pallet_town)

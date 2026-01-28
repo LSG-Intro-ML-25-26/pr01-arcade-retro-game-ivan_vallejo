@@ -84,6 +84,9 @@ function rival_house_npc() {
 function laboratory_npc() {
     let prof_oak: NPC;
     let azul2: NPC;
+    let ball_bulbasaur: NPC;
+    let ball_charmander: NPC;
+    let ball_squirtle: NPC;
     let azul: NPC;
     clear_map()
     let lab_npc = new NPC("Científico", assets.image`lab_npc`, 3, 3, ["Sabías que si un pokémon usa un movimiento de su mismo tipo, este verá aumentada su potencia en un 50%?"])
@@ -92,10 +95,16 @@ function laboratory_npc() {
         prof_oak = new NPC("Profesor Oak", assets.image`oak`, 5, 4, ["Pues ya estamos todos, podéis escoger a vuestro inicial! Escoger con cuidado, ya que este pokémon será el que os acompañe para el resto de vuestra aventura. Adelante " + player_name + ", haz tú los honores y escoge primero!"])
         tiles.setWallAt(tiles.getTileLocation(5, 4), true)
         npc_list.push(prof_oak)
-        azul2 = new NPC("Azul", assets.image`rival`, 7, 4, ["Que sepas que yo seré el mejor entrenador de Kanto, no podrás hacer nada contra mi!"])
+        azul2 = new NPC("Azul", assets.image`rival`, 7, 3, ["Que sepas que yo seré el mejor entrenador de Kanto, no podrás hacer nada contra mi!"])
         npc_list.push(azul2)
+        ball_bulbasaur = new NPC("Bulbasaur", assets.image`pokeball`, 8, 4, ["El Pokémon inicial de tipo planta. ¿Quieres quedarte con Bulbasaur?"])
+        npc_list.push(ball_bulbasaur)
+        ball_charmander = new NPC("Charmander", assets.image`pokeball`, 10, 4, ["El Pokémon inicial de tipo fuego. ¿Quieres quedarte con Charmander?"])
+        npc_list.push(ball_charmander)
+        ball_squirtle = new NPC("Squirtle", assets.image`pokeball`, 12, 4, ["El Pokémon inicial de tipo agua. ¿Quieres quedarte con Squirtle?"])
+        npc_list.push(ball_squirtle)
     } else {
-        azul = new NPC("Azul", assets.image`rival`, 7, 4, ["Se puede saber donde se habrá metido ese viejo? Quiero mi pokémon ya!", "Oye " + player_name + ", podrías salir a buscarlo por favor?"])
+        azul = new NPC("Azul", assets.image`rival`, 7, 3, ["Se puede saber donde se habrá metido ese viejo? Quiero mi pokémon ya!", "Oye " + player_name + ", podrías salir a buscarlo por favor?"])
         npc_list.push(azul)
     }
     
@@ -602,6 +611,18 @@ function top_text_sprite() {
     text_sprite_oak.setPosition(60, 5)
 }
 
+function confirm_choice(pokemon_npc: NPC) {
+    
+    if (game.ask("¿Elegir a " + pokemon_npc.name + "?")) {
+        has_pokemon = true
+        music.play(music.melodyPlayable(music.baDing), music.PlaybackMode.InBackground)
+        game.showLongText("¡Has conseguido a " + pokemon_npc.name + "!", DialogLayout.Bottom)
+        pokemon_npc.destroy()
+        npc_list.removeElement(pokemon_npc)
+    }
+    
+}
+
 controller.A.onEvent(ControllerButtonEvent.Pressed, function on_a_pressed() {
     let diff_x: number;
     let diff_y: number;
@@ -617,6 +638,10 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function on_a_pressed() {
             diff_y = Math.abs(red.y - npc_entity.sprite.y)
             if (diff_x < 20 && diff_y < 20) {
                 npc_entity.talk()
+                if (npc_entity.name == "Bulbasaur" || npc_entity.name == "Charmander" || npc_entity.name == "Squirtle") {
+                    confirm_choice(npc_entity)
+                }
+                
                 break
             }
             
@@ -726,12 +751,12 @@ function exit_pallet_town(sprite: Sprite, location: tiles.Location) {
         if (!oak_event) {
             controller.moveSprite(red, 0, 0)
             red.setVelocity(0, 0)
-            red.y += 16
+            game.showLongText("¡Espera! ¡No salgas todavía!", DialogLayout.Bottom)
+            red.y += 8
             control.runInParallel(function oak_scene() {
                 let oak: Sprite;
                 
                 oak = sprites.create(assets.image`oakup_static`, KindNPC)
-                game.showLongText("¡Espera! ¡No salgas todavía!", DialogLayout.Bottom)
                 oak.setFlag(SpriteFlag.Ghost, true)
                 oak.z = 100
                 oak.x = 184
@@ -744,7 +769,8 @@ function exit_pallet_town(sprite: Sprite, location: tiles.Location) {
                 animation.stopAnimation(animation.AnimationTypes.All, oak)
                 oak.setImage(assets.image`oakup_static`)
                 game.showLongText("¡¿A donde te piensas que vas sin pokémon?! Había ido a buscar a vuestros iniciales, venga, ven al laboratorio, te estaré esperando.", DialogLayout.Bottom)
-                while (oak.y < 200) {
+                animation.runImageAnimation(oak, assets.animation`oakdown`, 200, true)
+                while (oak.y < 144) {
                     oak.y += 2
                     pause(50)
                 }
@@ -756,9 +782,9 @@ function exit_pallet_town(sprite: Sprite, location: tiles.Location) {
         } else if (!has_pokemon) {
             controller.moveSprite(red, 0, 0)
             red.setVelocity(0, 0)
-            red.y += 16
-            pause(200)
             game.showLongText("Tienes que ir al laboratorio del profesor Oak!", DialogLayout.Bottom)
+            red.y += 8
+            pause(200)
             controller.moveSprite(red)
         }
         
