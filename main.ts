@@ -10,6 +10,8 @@ let KindNPC = SpriteKind.create()
 let npc_list : NPC[] = []
 let oak_event = true
 let has_pokemon = false
+let azul2 : NPC = null
+let player_choice = ""
 let IMG_BULBASAUR = img`...............................................
 ...............................................
 ..................................d............
@@ -230,11 +232,11 @@ function rival_house_npc() {
 
 function laboratory_npc() {
     let prof_oak: NPC;
-    let azul2: NPC;
     let ball_bulbasaur: NPC;
     let ball_charmander: NPC;
     let ball_squirtle: NPC;
     let azul: NPC;
+    
     clear_map()
     let lab_npc = new NPC("Científico", assets.image`lab_npc`, 3, 3, ["Sabías que si un pokémon usa un movimiento de su mismo tipo, este verá aumentada su potencia en un 50%?"])
     npc_list.push(lab_npc)
@@ -759,6 +761,7 @@ function top_text_sprite() {
 }
 
 function confirm_choice(pokemon_npc: NPC) {
+    let player_choice: string;
     
     let p_name = pokemon_npc.name
     let chosen_img = null
@@ -782,10 +785,99 @@ function confirm_choice(pokemon_npc: NPC) {
     if (game.ask("¿Elegir a " + p_name + "?")) {
         preview.destroy()
         has_pokemon = true
+        player_choice = p_name
         music.play(music.melodyPlayable(music.baDing), music.PlaybackMode.InBackground)
         game.showLongText("¡Has conseguido a " + p_name + "!", DialogLayout.Bottom)
         pokemon_npc.sprite.destroy()
         npc_list.removeElement(pokemon_npc)
+        control.runInParallel(function rival_scene() {
+            let azul_s: Sprite;
+            let target_tile_x: number;
+            let rival_pokemon: string;
+            let target_px_x: any;
+            
+            if (!azul2) {
+                return
+            }
+            
+            azul_s = azul2.sprite
+            azul_s.setFlag(SpriteFlag.Ghost, true)
+            azul2.talk()
+            game.showLongText("Azul: ¡Já! Te he tendido una trampa dejándote escoger primero, ahora verás!", DialogLayout.Bottom)
+            controller.moveSprite(red, 0, 0)
+            animation.runImageAnimation(azul_s, assets.animation`rivaldown`, 200, true)
+            while (azul_s.y < 104) {
+                azul_s.y += 2
+                pause(50)
+            }
+            target_tile_x = 0
+            rival_pokemon = ""
+            if (player_choice == "Squirtle") {
+                target_tile_x = 8
+                rival_pokemon = "Bulbasaur"
+            } else if (player_choice == "Bulbasaur") {
+                target_tile_x = 10
+                rival_pokemon = "Charmander"
+            } else if (player_choice == "Charmander") {
+                target_tile_x = 12
+                rival_pokemon = "Squirtle"
+            } else {
+                target_tile_x = 10
+                rival_pokemon = "Charmander"
+            }
+            
+            target_px_x = target_tile_x * 16 + 8
+            if (azul_s.x < target_px_x) {
+                animation.runImageAnimation(azul_s, assets.animation`rivalright`, 200, true)
+                while (azul_s.x < target_px_x) {
+                    azul_s.x += 2
+                    pause(50)
+                }
+            } else if (azul_s.x > target_px_x) {
+                animation.runImageAnimation(azul_s, assets.animation`rivalleft`, 200, true)
+                while (azul_s.x > target_px_x) {
+                    azul_s.x -= 2
+                    pause(50)
+                }
+            }
+            
+            animation.runImageAnimation(azul_s, assets.animation`rivalup`, 200, true)
+            while (azul_s.y > 88) {
+                azul_s.y -= 2
+                pause(50)
+            }
+            animation.stopAnimation(animation.AnimationTypes.All, azul_s)
+            azul_s.setImage(assets.image`rivalup_static`)
+            game.showLongText("Azul: ¡Escojo a " + rival_pokemon + "! Mi inicial tiene ventaja de tipos frente al tuyo, ahora nunca podrás vencerme", DialogLayout.Bottom)
+            for (let item of npc_list) {
+                if (item.name == rival_pokemon) {
+                    item.sprite.destroy()
+                    npc_list.removeElement(item)
+                    break
+                }
+                
+            }
+            animation.runImageAnimation(azul_s, assets.animation`rivaldown`, 200, true)
+            while (azul_s.y < 104) {
+                azul_s.y += 2
+                pause(50)
+            }
+            animation.runImageAnimation(azul_s, assets.animation`rivalleft`, 200, true)
+            while (azul_s.x > 104) {
+                azul_s.x -= 2
+                pause(50)
+            }
+            azul_s.setImage(assets.image`rivalright_static`)
+            game.showLongText("Azul: Yo me voy ya a por la primera medalla de gimnasio, nos vemos en ciudad plateada, adiós!", DialogLayout.Bottom)
+            animation.runImageAnimation(azul_s, assets.animation`rivaldown`, 200, true)
+            while (azul_s.y < 220) {
+                azul_s.y += 4
+                pause(50)
+            }
+            azul_s.destroy()
+            controller.moveSprite(red)
+            return
+        })
     } else {
         preview.destroy()
     }

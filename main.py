@@ -10,6 +10,8 @@ KindNPC = SpriteKind.create()
 npc_list: List[NPC] = []
 oak_event = True
 has_pokemon = False
+azul2: NPC = None
+player_choice = ""
 IMG_BULBASAUR = img("""...............................................
 ...............................................
 ..................................d............
@@ -216,6 +218,7 @@ def rival_house_npc():
     npc_list.append(rival_mom)
 
 def laboratory_npc():
+    global azul2
     clear_map()
     lab_npc = NPC("Científico", assets.image("""lab_npc"""), 3, 3, ["Sabías que si un pokémon usa un movimiento de su mismo tipo, este verá aumentada su potencia en un 50%?"])
     npc_list.append(lab_npc)
@@ -753,11 +756,13 @@ def confirm_choice(pokemon_npc: NPC):
     if game.ask("¿Elegir a " + p_name + "?"):
         preview.destroy()
         has_pokemon = True
+        player_choice = p_name
         music.play(music.melody_playable(music.ba_ding), music.PlaybackMode.IN_BACKGROUND)
         game.show_long_text("¡Has conseguido a " + p_name + "!", DialogLayout.BOTTOM)
         
         pokemon_npc.sprite.destroy()
         npc_list.remove_element(pokemon_npc)
+        control.run_in_parallel(rival_scene)
     else:
         preview.destroy()
 
@@ -898,6 +903,91 @@ def oak_scene():
     oak.destroy()
     oak_event = True
     controller.move_sprite(red)
+
+def rival_scene():
+    global player_choice, azul2
+    
+    if not azul2:
+        return
+        
+    azul_s = azul2.sprite
+    azul_s.set_flag(SpriteFlag.GHOST, True)
+    
+    azul2.talk()
+    game.show_long_text("Azul: ¡Já! Te he tendido una trampa dejándote escoger primero, ahora verás!", DialogLayout.BOTTOM)
+    
+    controller.move_sprite(red, 0, 0)
+
+    animation.run_image_animation(azul_s, assets.animation("""rivaldown"""), 200, True)
+    while azul_s.y < 104:
+        azul_s.y += 2
+        pause(50)
+    
+    target_tile_x = 0
+    rival_pokemon = ""
+    
+    if player_choice == "Squirtle":
+        target_tile_x = 8
+        rival_pokemon = "Bulbasaur"
+    elif player_choice == "Bulbasaur":
+        target_tile_x = 10
+        rival_pokemon = "Charmander"
+    elif player_choice == "Charmander":
+        target_tile_x = 12
+        rival_pokemon = "Squirtle"
+    else:
+        target_tile_x = 10
+        rival_pokemon = "Charmander"
+
+    target_px_x = (target_tile_x * 16) + 8
+
+    if azul_s.x < target_px_x:
+        animation.run_image_animation(azul_s, assets.animation("""rivalright"""), 200, True)
+        while azul_s.x < target_px_x:
+            azul_s.x += 2
+            pause(50)
+    elif azul_s.x > target_px_x:
+        animation.run_image_animation(azul_s, assets.animation("""rivalleft"""), 200, True)
+        while azul_s.x > target_px_x:
+            azul_s.x -= 2
+            pause(50)
+
+    animation.run_image_animation(azul_s, assets.animation("""rivalup"""), 200, True)
+    while azul_s.y > 88:
+        azul_s.y -= 2
+        pause(50)
+    
+    animation.stop_animation(animation.AnimationTypes.ALL, azul_s)
+    azul_s.set_image(assets.image("""rivalup_static"""))
+    game.show_long_text("Azul: ¡Escojo a " + rival_pokemon + "! Mi inicial tiene ventaja de tipos frente al tuyo, ahora nunca podrás vencerme", DialogLayout.BOTTOM)
+    
+    for item in npc_list:
+        if item.name == rival_pokemon:
+            item.sprite.destroy()
+            npc_list.remove_element(item)
+            break
+
+    animation.run_image_animation(azul_s, assets.animation("""rivaldown"""), 200, True)
+    while azul_s.y < 104:
+        azul_s.y += 2
+        pause(50)
+    
+    animation.run_image_animation(azul_s, assets.animation("""rivalleft"""), 200, True)
+    while azul_s.x > 104:
+        azul_s.x -= 2
+        pause(50)
+
+    azul_s.set_image(assets.image("""rivalright_static"""))
+    game.show_long_text("Azul: Yo me voy ya a por la primera medalla de gimnasio, nos vemos en ciudad plateada, adiós!", DialogLayout.BOTTOM)
+
+    animation.run_image_animation(azul_s, assets.animation("""rivaldown"""), 200, True)
+    while azul_s.y < 220:
+        azul_s.y += 4
+        pause(50)
+    
+    azul_s.destroy()
+    controller.move_sprite(red)
+    return
 
 def exit_pallet_town(sprite, location):
     global oak_event
