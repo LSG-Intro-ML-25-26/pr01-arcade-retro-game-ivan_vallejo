@@ -682,20 +682,23 @@ def exit_lab(sprite, location):
 
 scene.on_overlap_tile(SpriteKind.player, assets.tile("""lab_entry_bottom_center"""), exit_lab)
 
-def escena_oak():
+def oak_scene():
     global oak_event
-    oak = sprites.create(assets.image("""oak2"""), KindNPC)
+    oak = sprites.create(assets.image("""oakup_static"""), KindNPC)
+    game.show_long_text("¡Espera! ¡No salgas todavía!", DialogLayout.BOTTOM)
     oak.set_flag(SpriteFlag.GHOST, True)
     oak.z = 100
-    oak.x = red.x
+    oak.x = 184
     oak.y = 140
+    animation.run_image_animation(oak, assets.animation("""oakup"""), 200, True)
     
-    while oak.y > 48:
+    while oak.y > 64:
         oak.y -= 2
         pause(50)
+    animation.stop_animation(animation.AnimationTypes.ALL, oak)
+    oak.set_image(assets.image("""oakup_static"""))
     
-    game.show_long_text("Oak: ¡Espera! ¡No salgas todavía!", DialogLayout.BOTTOM)
-    game.show_long_text("¡Ven a mi laboratorio!", DialogLayout.BOTTOM)
+    game.show_long_text("¡¿A donde te piensas que vas sin pokémon?! Había ido a buscar a vuestros iniciales, venga, ven al laboratorio, te estaré esperando.", DialogLayout.BOTTOM)
     
     while oak.y < 200:
         oak.y += 2
@@ -714,7 +717,7 @@ def exit_pallet_town(sprite, location):
             controller.move_sprite(red, 0, 0)
             red.set_velocity(0, 0)
             red.y += 16
-            control.run_in_parallel(escena_oak)
+            control.run_in_parallel(oak_scene)
             oak_event = True
         elif not has_pokemon:
             controller.move_sprite(red, 0, 0)

@@ -727,20 +727,23 @@ function exit_pallet_town(sprite: Sprite, location: tiles.Location) {
             controller.moveSprite(red, 0, 0)
             red.setVelocity(0, 0)
             red.y += 16
-            control.runInParallel(function escena_oak() {
+            control.runInParallel(function oak_scene() {
                 let oak: Sprite;
                 
-                oak = sprites.create(assets.image`oak2`, KindNPC)
+                oak = sprites.create(assets.image`oakup_static`, KindNPC)
+                game.showLongText("¡Espera! ¡No salgas todavía!", DialogLayout.Bottom)
                 oak.setFlag(SpriteFlag.Ghost, true)
                 oak.z = 100
-                oak.x = red.x
+                oak.x = 184
                 oak.y = 140
-                while (oak.y > 48) {
+                animation.runImageAnimation(oak, assets.animation`oakup`, 200, true)
+                while (oak.y > 64) {
                     oak.y -= 2
                     pause(50)
                 }
-                game.showLongText("Oak: ¡Espera! ¡No salgas todavía!", DialogLayout.Bottom)
-                game.showLongText("¡Ven a mi laboratorio!", DialogLayout.Bottom)
+                animation.stopAnimation(animation.AnimationTypes.All, oak)
+                oak.setImage(assets.image`oakup_static`)
+                game.showLongText("¡¿A donde te piensas que vas sin pokémon?! Había ido a buscar a vuestros iniciales, venga, ven al laboratorio, te estaré esperando.", DialogLayout.Bottom)
                 while (oak.y < 200) {
                     oak.y += 2
                     pause(50)
