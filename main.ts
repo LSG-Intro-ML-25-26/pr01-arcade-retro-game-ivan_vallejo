@@ -906,7 +906,12 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function on_a_pressed() {
             if (diff_x < 20 && diff_y < 20) {
                 npc_entity.talk()
                 if (npc_entity.name == "Bulbasaur" || npc_entity.name == "Charmander" || npc_entity.name == "Squirtle") {
-                    confirm_choice(npc_entity)
+                    if (has_pokemon) {
+                        game.showLongText("Ya has escogido un pokémon!", DialogLayout.Bottom)
+                    } else {
+                        confirm_choice(npc_entity)
+                    }
+                    
                 }
                 
                 break

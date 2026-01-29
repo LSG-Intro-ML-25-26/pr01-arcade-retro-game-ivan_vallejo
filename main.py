@@ -788,7 +788,10 @@ def on_a_pressed():
             if diff_x < 20 and diff_y < 20:
                 npc_entity.talk()
                 if npc_entity.name == "Bulbasaur" or npc_entity.name == "Charmander" or npc_entity.name == "Squirtle":
-                    confirm_choice(npc_entity)
+                    if has_pokemon:
+                        game.show_long_text("Ya has escogido un pokémon!", DialogLayout.BOTTOM)
+                    else: 
+                        confirm_choice(npc_entity)
                 break
 
 controller.A.on_event(ControllerButtonEvent.PRESSED, on_a_pressed)
